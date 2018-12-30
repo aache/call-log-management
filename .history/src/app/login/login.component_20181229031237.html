@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1>Infranet Services</h1>      
+    <p>Please provide your credentials</p>
+    <div class="form-group">
+      <form (ngSubmit)="onSubmit()">
+                <label for="username">Username:</label>
+                <input type="text" placeholder="Enter Username" name="username" class="primary form-control col-md-6">
+                
+                <label for="password">Password:</label>
+                <input type="password" placeholder="Enter Password" name="password" class="primary form-control col-md-6">
+
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" name="remember"> Remember me
+                    </label>
+                  </div>
+                
+                <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+  </div>  
+  </div>
+      
+</div>
