@@ -1,0 +1,35 @@
+.huge {
+    font-size: 40px;
+  }
+
+  .fa-comments{
+    content: "\f086";
+  }
+
+  .panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+            box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+  }
+
+  .panel-primary {
+    border-color: #337ab7;
+  }
+
+  .panel-primary > .panel-heading {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #337ab7;
+  }
+
+  .panel-success {
+    border-color: #d6e9c6;
+  }
+  .panel-success > .panel-heading {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+  }

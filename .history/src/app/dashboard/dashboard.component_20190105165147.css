@@ -1,0 +1,16 @@
+.huge {
+    font-size: 40px;
+  }
+
+  .fa-comments{
+    content: "\f086";
+  }
+
+  .panel-yellow {
+    border-color: #f0ad4e;
+  }
+  .panel-yellow > .panel-heading {
+    border-color: #f0ad4e;
+    color: white;
+    background-color: #f0ad4e;
+  }

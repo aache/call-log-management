@@ -2,6 +2,6 @@
     font-size: 40px;
   }
 
-  .fa-comments{
+  .fa-comments:before {
     content: "\f086";
   }

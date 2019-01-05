@@ -14,7 +14,6 @@ import { AppSettings } from './app-settings';
 import { PrimaryComponent } from './dashboard/primary/primary.component';
 import { GreenComponent } from './dashboard/green/green.component';
 import { RedComponent } from './dashboard/red/red.component';
-import { YellowComponent } from './dashboard/yellow/yellow.component';
 
 @NgModule({
   declarations: [
@@ -24,8 +23,7 @@ import { YellowComponent } from './dashboard/yellow/yellow.component';
     VerticalNavigationComponent,
     PrimaryComponent,
     GreenComponent,
-    RedComponent,
-    YellowComponent
+    RedComponent
   ],
   imports: [
     BrowserModule,
