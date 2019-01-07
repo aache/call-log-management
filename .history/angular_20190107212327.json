@@ -25,8 +25,7 @@
             "styles": [
               "src/styles.css",
               "src/sb-admin/sb-admin-2.css",
-              "src/sb-admin/bootstrap-social.css",
-              "src/sb-admin/font-awesome.css"
+              "src/sb-admin/bootstrap-social.css"
             ],
             "scripts": []
           },
