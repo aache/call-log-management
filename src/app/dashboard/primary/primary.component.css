@@ -22,3 +22,15 @@
   .huge {
     font-size: 40px;
   }
+
+  .cmt{
+    padding-left: 60px;
+  }
+
+  .col-xs-3{
+    padding-left: 30px;
+  }
+
+  .pull-left{
+    padding-left: 100px;    
+  }
