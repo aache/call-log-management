@@ -31,6 +31,7 @@
               "src/metisMenu/metisMenu.css"
             ],
             "scripts": [
+              "src/sb-admin-js/jquery.js",
               "src/metisMenu/metisMenu.js",
               "src/sb-admin-js/bootstrap-classic.js"
             ]
