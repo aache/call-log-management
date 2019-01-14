@@ -5,20 +5,23 @@ import { LoginAuthService } from '../services/login/login-auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [LoginAuthService]
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   submitted: boolean;
   constructor(
     private formBuilder: FormBuilder,
-    private loginAuthService: LoginAuthService
+    private loginAuthService:LoginAuthService
   ) {}
 
   ngOnInit() {
+    this.loginAuthService.LoginAuth();
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
+    
     });
   }
 
