@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { CallLogFormComponent } from './call-log-form/call-log-form.component';
+import { CallLogFormComponent } from './call-log-form/logform.component';
 
 const routes: Routes = [
   {path: 'dashboard' , component: DashboardComponent},

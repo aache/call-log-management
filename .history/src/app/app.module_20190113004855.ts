@@ -16,7 +16,7 @@ import { GreenComponent } from './dashboard/green/green.component';
 import { RedComponent } from './dashboard/red/red.component';
 import { YellowComponent } from './dashboard/yellow/yellow.component';
 import { PinkComponent } from './dashboard/pink/pink.component';
-import { CallLogFormComponent } from './call-log-form/call-log-form.component';
+import { CallLogFormComponent } from './call-log-form/logform.component';
 
 
 @NgModule({

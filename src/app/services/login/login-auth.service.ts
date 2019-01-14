@@ -28,6 +28,6 @@ export class LoginAuthService {
       }
   }
   printLogin(username: String, password: String) {
-    console.log(username + '::::' + password + AppSettings.API_ENDPOINT);
+    alert(username + '::::' + password + AppSettings.API_ENDPOINT);
   }
 }
