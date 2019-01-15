@@ -7,24 +7,13 @@ import { AppSettings } from '../../app-settings';
 export class LoginAuthService {
 
   constructor() { }
-  LoginAuth()
+  loginAuth(u:String , p : String) : boolean
   {
-      var username = loginform.username.value;
-      var password = loginform.password.value;
-      if(username != "usama" || password != "quraishi")
+      if(u == "usama" && p == "quraishi")
       {
-        alert("Invalid username and password")
-        return;
-      }
-      if(username != "usama" )
-      {
-        alert("Invalid username ")
-        return;
-      }
-      if( password != "quraishi")
-      {
-        alert("Invalid  password")
-        return;
+        return true ; 
+      }else {
+        return false ; 
       }
   }
   printLogin(username: String, password: String) {

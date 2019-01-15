@@ -17,17 +17,16 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.loginAuthService.LoginAuth();
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
-    
     });
   }
 
   get f() { return this.loginForm.controls; }
+  
 
-  onSubmit() {
+  validate() {
     this.submitted = true ;
 
     // stop here if form is invalid
@@ -35,5 +34,11 @@ export class LoginComponent implements OnInit {
         return;
       }
       this.loginAuthService.printLogin(this.f.username.value, this.f.password.value);
+      if(this.loginAuthService.loginAuth(this.f.username.value,this.f.password.value))
+      {
+        alert("SUCCESS");
+      }else{
+        alert("FAILURE");
+      }
   }
 }
