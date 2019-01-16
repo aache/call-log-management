@@ -3,7 +3,7 @@
     <h1>Infranet Services</h1>      
     <p>Please provide your credentials</p>
     <div class="form-group">
-      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="loginForm" (ngSubmit)="validate()">
                 <label for="username">Username:</label>
                 <input type="text" placeholder="Enter Username" formControlName="username" class="primary form-control col-md-6">
                     <div *ngIf="submitted" >
