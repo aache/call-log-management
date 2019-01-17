@@ -8,7 +8,10 @@
                 <input type="text" placeholder="Enter Username" formControlName="username" class="primary form-control col-md-6">
                     <div *ngIf="submitted" >
                       <div *ngIf="loginForm.get('username').errors?.required" class="alert alert-danger col-md-6">Username is required</div>
-                    </div>
+                      <div *ngIf="loginForm.get('username').errors?.minlength || loginForm.get('username').errors?.maxlength" class="alert alert-danger col-md-6">Username must be between 6 and 15</div>
+                  </div>
+                  
+                   
 
                 <label for="password">Passwords:</label>
                 <input type="password" placeholder="Enter Password" formControlName="password" class="primary form-control col-md-6">

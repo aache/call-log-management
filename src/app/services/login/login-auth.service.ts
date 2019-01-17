@@ -6,21 +6,32 @@ import { Student } from 'src/app/models/Student';
   providedIn: 'root'
 })
 
-export class LoginAuthService {
+export class LoginAuthService 
+{
 
   constructor() { }
-  
   loginAuth(u:String , p : String) : boolean
-  {
-      if(u == "usama" && p == "quraishi")
+    {
+      if(u == "usamaaa" && p == "quraishi")
       {
         return true ; 
-      }else {
-        return false ; 
       }
-  }
-  printLogin(username: String, password: String) {
-    console.log(username);    
-    
-  }
+     else
+        {
+         return false ; 
+        }
+    }
+  
+
+   loginUser(u:String ) : boolean
+    {
+      if((u.length <= 6) || (u.length >= 15))
+      {
+        return false ; 
+      }    
+    }
+   printLogin(username: String, password: String) 
+    {
+     console.log(username);    
+    }
 }

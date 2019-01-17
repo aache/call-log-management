@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required],
+      username: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(15)]],
       password: ['', Validators.required]
     });
   }
@@ -41,7 +41,6 @@ export class LoginComponent implements OnInit {
         return;
      }
       this.loginAuthService.printLogin(this.f.username.value, this.f.password.value);
-
       if(this.loginAuthService.loginAuth(this.f.username.value,this.f.password.value))
       {
         this.router.navigate(['/dashboard']);
@@ -50,6 +49,12 @@ export class LoginComponent implements OnInit {
         {
          alert("FAILURE");
         }
+      if(this.loginAuthService.loginUser(this.f.username.value))
+      {
+        alert("user length must be between 6 & 15");
+      }
+
+      
     }
   }
 
