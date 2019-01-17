@@ -17,7 +17,7 @@ import { RedComponent } from './dashboard/red/red.component';
 import { YellowComponent } from './dashboard/yellow/yellow.component';
 import { PinkComponent } from './dashboard/pink/pink.component';
 import { CallLogFormComponent } from './call-log-form/call-log-form.component';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -33,6 +33,7 @@ import { CallLogFormComponent } from './call-log-form/call-log-form.component';
     CallLogFormComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule
