@@ -49,10 +49,7 @@ export class LoginComponent implements OnInit {
         {
          alert("FAILURE");
         }
-      if(this.loginAuthService.loginUser(this.f.username.value))
-      {
-        alert("user length must be between 6 & 15");
-      }
+     
 
       
     }

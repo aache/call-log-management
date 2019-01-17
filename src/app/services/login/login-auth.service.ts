@@ -16,6 +16,7 @@ export class LoginAuthService
       {
         return true ; 
       }
+
      else
         {
          return false ; 
@@ -23,15 +24,12 @@ export class LoginAuthService
     }
   
 
-   loginUser(u:String ) : boolean
-    {
-      if((u.length <= 6) || (u.length >= 15))
-      {
-        return false ; 
-      }    
-    }
+  
    printLogin(username: String, password: String) 
     {
      console.log(username);    
     }
 }
+
+  
+
