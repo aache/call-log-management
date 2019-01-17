@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginAuthService } from '../services/login/login-auth.service';
 import { AppSettings } from '../app-settings';
+import { DashboardComponent } from '../dashboard/dashboard.component';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +16,9 @@ export class LoginComponent implements OnInit {
   submitted: boolean;
   constructor(
     private formBuilder: FormBuilder,
-    private loginAuthService:LoginAuthService
+    private loginAuthService: LoginAuthService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -27,19 +31,25 @@ export class LoginComponent implements OnInit {
   get f() { return this.loginForm.controls; }
   
 
-  validate() {
-    this.submitted = true ;
+  validate()
+   {
+     this.submitted = true ;
 
-    // stop here if form is invalid
-      if (this.loginForm.invalid) {
+     // stop here if form is invalid
+      if (this.loginForm.invalid)
+     {
         return;
-      }
+     }
       this.loginAuthService.printLogin(this.f.username.value, this.f.password.value);
+
       if(this.loginAuthService.loginAuth(this.f.username.value,this.f.password.value))
       {
-        window.location.href = AppSettings.PROTOCOL+'://'+AppSettings.HOST+':'+AppSettings.PORT+'/dashboard';
-      }else{
-        alert("FAILURE");
-      }
+        this.router.navigate(['/dashboard']);
+     
+      }else
+        {
+         alert("FAILURE");
+        }
+    }
   }
-}
+
