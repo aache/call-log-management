@@ -18,6 +18,7 @@ import { YellowComponent } from './dashboard/yellow/yellow.component';
 import { PinkComponent } from './dashboard/pink/pink.component';
 import { CallLogFormComponent } from './call-log-form/call-log-form.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PrimaryService } from './services/Dashboard/primary.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   providers: [
     AppSettings,
-    LoginAuthService
+    LoginAuthService,
+    PrimaryService
   ],
   bootstrap: [AppComponent]
 })
