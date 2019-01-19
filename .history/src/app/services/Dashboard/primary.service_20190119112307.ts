@@ -13,7 +13,7 @@ export class PrimaryService {
     const httpOutput = this.http.get<IPrimary[]>(this._url);
     console.log('Reading http output');
     console.log(httpOutput) ;
-    return httpOutput;
+    return httpOutput; 
   }
 
 }

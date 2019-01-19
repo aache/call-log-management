@@ -9,11 +9,11 @@ import { Observable } from 'rxjs';
 export class PrimaryService {
   private _url: string = "/assets/Data/primary.json";
   constructor(private http : HttpClient ) { }
-  getPrimary(): Observable<IPrimary[]>{
-    const httpOutput = this.http.get<IPrimary[]>(this._url);
-    console.log('Reading http output');
-    console.log(httpOutput) ;
-    return httpOutput;
+  getPrimary():Observable<IPrimary[]>{
+    let httpOutput = this.http.get<IPrimary[]>(this._url);
+    console.log ("Reading http output") ;
+    console.Console.log (httpOutput) ;    
+    return httpOutput; 
   }
 
 }
