@@ -1,4 +1,3 @@
 export interface IPrimary {
-    id: number,
-    name: string
+    id: number
 }

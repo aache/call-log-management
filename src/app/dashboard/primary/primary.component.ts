@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PrimaryService } from 'src/app/services/Dashboard/primary.service';
 import { HttpClient } from '@angular/common/http';
+import { IPrimary } from './primary';
 @Component({
   selector: 'app-primary',
   templateUrl: './primary.component.html',
@@ -10,19 +11,20 @@ import { HttpClient } from '@angular/common/http';
   //services is in services/dashboard/primary.service.ts
   styleUrls: ['./primary.component.css']
 })
-export class PrimaryComponent implements OnInit {
 
-  public primarys = [];
+export class PrimaryComponent implements OnInit {
+  public primaryData:number;
+  
   constructor(private primaryService:PrimaryService) {
-    console.log(this.primarys.length)
+    
    }
 
+ 
   ngOnInit() {
-    this.primaryService.getPrimary()
-    .subscribe(data => this.primarys = data);
-    console.log(this.primarys = []);
-    
-    
+ this.primaryService.getPrimary().subscribe(data => {
+      this.primaryData = data.id; 
+ });
   }
 
 }
+
