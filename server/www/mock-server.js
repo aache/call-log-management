@@ -8,10 +8,19 @@ app.use(function(req, res, next) {
     next();
 });
 
+/*Login-Auth User Details */
+const Login = {
+    username : new Array ("Administrator","Manager","Developer"),
+    password : new Array ("password","password","password")
+}
+
+app.get('/mock/mock-login-auth',(req,res) => res.send(Login))
+
+/* Dashboard Primary Data */
 const primary_data = {
     id :  10 
 }
-/* Dashboard Primary Data */
+
 app.get('/mock/mock-primary', (req, res) => res.send(primary_data))
 
 /* Dashboard Green Data */
