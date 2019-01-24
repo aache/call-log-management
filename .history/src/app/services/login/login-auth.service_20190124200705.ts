@@ -16,7 +16,7 @@ export class LoginAuthService
 
   constructor(private http: HttpClient) {}
   loginAuth(u: string, p: string): Observable<boolean> {
-    const httpParam = new HttpParams().set('username', u ).set('password', p);
+    let httpParam = new HttpParams().set('username', u ).set('password', p);
     const httpOutput = this.http.get<boolean>(this._urlLogin, {headers: null , params : httpParam});
     return httpOutput;
     }

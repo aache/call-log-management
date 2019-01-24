@@ -39,15 +39,12 @@ export class LoginComponent implements OnInit {
       if (this.loginForm.invalid) {
         return;
      }
-      // this.loginAuthService.printLogin(this.f.username.value, this.f.password.value);
-      this.loginAuthService.loginAuth(this.f.username.value, this.f.password.value).subscribe(data => {
-        console.log(data);
-        if (data) {
-          this.router.navigate(['/dashboard']);
-        } else {
-           alert('FAILURE');
+      this.loginAuthService.printLogin(this.f.username.value, this.f.password.value);
+      if (this.loginAuthService.loginAuth(this.f.username.value, this.f.password.value)) {
+        this.router.navigate(['/dashboard']);
+      } else {
+         alert('FAILURE');
         }
-      });
     }
   }
 

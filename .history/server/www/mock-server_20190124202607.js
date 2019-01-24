@@ -16,14 +16,9 @@ const Login = {
 
 app.get('/mock/mock-login-auth',(req,res) => {
     console.log(req);  
-    console.log(req.query.username);  
-    console.log(req.query.password);
-    if(Login.username.includes(req.query.username) && Login.password.includes(req.query.password)){
-        res.send(true);  
-    }
-    else {
-        res.send(false); 
-    }  
+    console.log(req.params["username"]);  
+    console.log(req.params["password"]);  
+    return true; 
 }); 
 
 /* Dashboard Primary Data */

@@ -39,9 +39,9 @@ export class LoginComponent implements OnInit {
       if (this.loginForm.invalid) {
         return;
      }
-      // this.loginAuthService.printLogin(this.f.username.value, this.f.password.value);
-      this.loginAuthService.loginAuth(this.f.username.value, this.f.password.value).subscribe(data => {
-        console.log(data);
+      this.loginAuthService.printLogin(this.f.username.value, this.f.password.value);
+
+      this.loginAuthService.loginAuth(this.f.username.value, this.f.password.value).subscribe(data =>{
         if (data) {
           this.router.navigate(['/dashboard']);
         } else {
