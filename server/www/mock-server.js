@@ -1,29 +1,36 @@
-const express = require('express');
-const app = express()
-const port = 3000
+    const express = require('express');
+    const app = express()
+    const port = 3000
 
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
+    app.use(function(req, res, next) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        next();
+    });
 
-/*Login-Auth User Details */
+/*Login-Auth User Details */ 
 const Login = {
-    username : new Array ("Administrator","Manager","Developer"),
-    password : new Array ("password","password","password")
+    usernames : new Array ("Administrator","Manager","Developer"),
+    passwords : new Array ("password1","password2","password3")
 }
 
 app.get('/mock/mock-login-auth',(req,res) => {
     console.log(req);  
-    console.log(req.query.username);  
-    console.log(req.query.password);
-    if(Login.username.includes(req.query.username) && Login.password.includes(req.query.password)){
-        res.send(true);  
-    }
-    else {
+    console.log(req.query.usernames);  
+    console.log(req.query.passwords);
+
+    var valid=false;
+    for(var i = 0; i < Login.usernames.length; i++){
+    if((req.query.username)==Login.usernames[i] && (req.query.password)==Login.passwords[i]){
+        valid=true;
+        break;  
+    }   
+}
+if(valid){
+    res.send(true);
+    }else {
         res.send(false); 
-    }  
+    } 
 }); 
 
 /* Dashboard Primary Data */
