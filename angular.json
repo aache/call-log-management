@@ -33,7 +33,8 @@
             "scripts": [
               "src/sb-admin-js/jquery.js",
               "src/metisMenu/metisMenu.js",
-              "src/sb-admin-js/bootstrap-classic.js"
+              "src/sb-admin-js/bootstrap-classic.js",
+              "src/sb-admin-js/sb-admin-2.js"
             ]
           },
           "configurations": {
