@@ -8,6 +8,34 @@
         next();
     });
 
+    /*Sql database Connection */
+
+    const mysql = require('mysql');
+    const conn = mysql.createConnection({
+      host     : 'localhost',
+      user     : 'root',
+      password : '123456',
+      database : 'emp'
+    });    
+    conn.connect(function(err){
+        (err)?console.log(err):console.log(conn)+JSON.stringify(err,undefined,2);
+    }); 
+
+    app.get('/employees',(req,res) => {
+       conn.query('SELECT * FROM employee',(err,rows,fields)=>{
+           if(!err)
+           res.send(rows);
+           else
+           console.log(err);
+       })
+   });
+  
+    
+    
+   
+
+
+
 /*Login-Auth User Details */ 
 const Login = {
     usernames : new Array ("Administrator","Manager","Developer"),
@@ -15,9 +43,9 @@ const Login = {
 }
 
 app.get('/mock/mock-login-auth',(req,res) => {
-    console.log(req);  
-    console.log(req.query.usernames);  
-    console.log(req.query.passwords);
+   // console.log(req);  
+    //console.log(req.query.usernames);  
+    //console.log(req.query.passwords);
 
     var valid=false;
     for(var i = 0; i < Login.usernames.length; i++){
@@ -26,11 +54,7 @@ app.get('/mock/mock-login-auth',(req,res) => {
         break;  
     }   
 }
-if(valid){
-    res.send(true);
-    }else {
-        res.send(false); 
-    } 
+res.send(valid);
 }); 
 
 /* Dashboard Primary Data */
