@@ -17,14 +17,15 @@ export class CallLogFormComponent implements OnInit {
   
   constructor(private callservice:CallLogFrmService) { 
   }
-  public a;
+  //submitted = false;
 
               onSubmit(){
+                //this.submitted=true;
               this.callservice.call(this.callpostmodel)
               
               .subscribe(
                 data => console.log('success!',data),
-                error => console.log('Error!!',error),
+                error => console.log('Error!!',error)
      
               )
               return confirm('Do you really want to submit the form?');
