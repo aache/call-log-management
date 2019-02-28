@@ -1,5 +1,5 @@
 <app-vertical-navigation></app-vertical-navigation>
-<div id="page-wrapper">
+<div id="page-wrapper" >
         <div class="row">
                 <div class="col-lg-8">
                     <h1 class="page-header">Call-Log-Form</h1>
@@ -16,60 +16,72 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-lg-8">
-                <!--form-->
-                    <div class="form-group">
+                    <form role="form"  #calllogfrm="ngForm" (ngSubmit)="onSubmit()" novalidate >
+                       {{calllogfrm.value | json}}
+                        <hr />
+                        {{callpostmodel | json}} 
+                        <!--form-->
+                    <div class="form-group" >
                         <label>Name Of Person :</label>
-                        <input class="form-control" id="name">
-                        <p class="help-block">Example Alphabets (A-Z) in camel Notation.</p>
-                    </div>
+                        <input class="form-control " [class.alert-danger]="name.invalid && name.touched"
+                         #name="ngModel" name="name" required [(ngModel)]="callpostmodel.name" >                      
+                        <small [class.hidden]="name.valid || name.untouched">Name is Required!!</small>
+                        
+                   </div> 
+                   
                     <div class="form-group">
                         <label>Phone Number :</label>
-                        <input class="form-control" id="phone_number">
-                        <p class="help-block">Example Numbers (0-9).</p>
+                        <input class="form-control" #phone_number="ngModel" 
+                             [class.alert-danger]="phone_number.invalid && phone_number.touched" pattern="^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$" 
+                             name="phone_number" required [(ngModel)]="callpostmodel.phone_number">
+                        <div *ngIf="phone_number.errors && (phone_number.invalid || phone_number.touched)">
+                            <small class="alert-danger" *ngIf="phone_number.errors.required">Phone Number is Required !!</small>
+                            <small class="alert-danger" *ngIf="phone_number.errors.pattern">Number should be in this format(8*********,91**********,+91**********,+91 *********,,+91-*********,0**********)</small>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label>Time Of Call :</label>
-                        
-                        <input class="form-control" type="datetime-local" id="time-of-call" name="bday" min="2000-01-02">
-                        
-                        <p class="help-block">Example Select Date from a calender.</p>
+                        <input class="form-control" #time_of_call="ngModel" [class.alert-danger]="time_of_call.untouched" type="datetime-local" id="time_of_call" name="time_of_call" min="2000-01-02" required [(ngModel)]="callpostmodel.time_of_call">
+                          <p class="help-block">Select Date and Time !!</p>
                     </div>
                     <div class="form-group">
                         <label>Location :</label>
-                        <input class="form-control" id="location">
-                        <p class="help-block">Example Specifiy the Area.</p>
+                        <input class="form-control" #location="ngModel" [class.alert-danger]="location.invalid && location.touched"
+                         name="location" required [(ngModel)]="callpostmodel.location">
+                        <small [class.hidden]="location.valid || location.untouched">Location is Required !!</small>
                     </div>
                     <div class="form-group">
                         <label>Reported by :</label>
-                        <input class="form-control" id="reported-by">
-                        <p class="help-block">Example block-level help text here.</p>
+                        <input class="form-control" #reported_by="ngModel" [class.alert-danger]="reported_by.invalid && reported_by.touched" 
+                        name="reported_by" required [(ngModel)]="callpostmodel.reported_by">
+                        <small [class.hidden]="reported_by.valid || reported_by.untouched">Reporeted By is Required !!</small>
                     </div>
                     <div class="form-group">
                             <label>Call Priority :</label>
-                            <select class="form-control" id="call-priority">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                            <select class="form-control" id="call_priority" name="call_priority" required [(ngModel)]="callpostmodel.call_priority">
+                                <option value="1">Immediate Priority</option>
+                                <option value="2">High Priority</option>
+                                <option value="3">Medium Priority</option>
+                                <option value="4">Low Priority</option>
                             </select>
                     </div>
                     <div class="form-group">
                             <label>Call Severity :</label>
-                            <select class="form-control" id="call-severity">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                            <select class="form-control" id="call_severity" name="call_severity" required [(ngModel)]="callpostmodel.call_severity">
+                                <option value="1">Critical Severity</option>
+                                <option value="2">Major Severity</option>
+                                <option value="3">Minor Severity</option>
+                                <option value="4">Low Severity</option>    
                             </select>
                     </div>
+
                     <button type="submit" class="btn btn-default">Submit Button</button>
                     <button type="reset" class="btn btn-default">Reset Button</button>
                     
 
                     
                 <!--/form-->
+                </form>
             </div>
             <!-- /.col-lg-6 (nested) -->
         </div>

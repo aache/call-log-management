@@ -5,9 +5,14 @@
     app.use(function(req, res, next) {
         res.header("Access-Control-Allow-Origin", "*");
         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
         next();
     });
 
+    var bodyParser = require('body-parser');
+    app.use(bodyParser.urlencoded({ extended: false }));
+    app.use(bodyParser.json());
+    var router = express.Router();
     /*Sql database Connection */
 
     const mysql = require('mysql');
@@ -15,26 +20,40 @@
       host     : 'localhost',
       user     : 'root',
       password : '123456',
-      database : 'emp'
+      database : 'db_call-log-mgt'
     });    
     conn.connect(function(err){
-        (err)?console.log(err):console.log(conn)+JSON.stringify(err,undefined,2);
+        (err)?console.log(err):console.log(/*conn*/)+JSON.stringify(err,undefined,2);
     }); 
 
-    app.get('/employees',(req,res) => {
-       conn.query('SELECT * FROM employee',(err,rows,fields)=>{
+    //Service to get data from screen and save in database
+    app.post('/mock/mock-calllogfrm',(req,res) => {
+       
+        console.log(req.body.timeofcall); 
+        console.log(req.body.callpriority);
+        console.log(req.body.callseverity);  
+        var calllog = {
+            uname       : req.body.name,
+            phonenumber : req.body.phone_number,
+            timeofcall  : req.body.time_of_call,
+            location    : req.body.location,
+            reportedby  : req.body.reported_by,
+            callpriority: req.body.call_priority,
+            callseverity: req.body.call_severity
+        }
+
+        
+       // console.log(req.body.name);
+        conn.query('INSERT INTO tb_calllogfrm SET ?', calllog, function (err, res) {
+        
+        
            if(!err)
-           res.send(rows);
+        
+          console.log("Success"); 
            else
            console.log(err);
-       })
-   });
-  
-    
-    
-   
-
-
+          });
+    });
 
 /*Login-Auth User Details */ 
 const Login = {
@@ -43,9 +62,6 @@ const Login = {
 }
 
 app.get('/mock/mock-login-auth',(req,res) => {
-   // console.log(req);  
-    //console.log(req.query.usernames);  
-    //console.log(req.query.passwords);
 
     var valid=false;
     for(var i = 0; i < Login.usernames.length; i++){
