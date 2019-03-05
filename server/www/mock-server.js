@@ -26,7 +26,7 @@
         (err)?console.log(err):console.log(/*conn*/)+JSON.stringify(err,undefined,2);
     }); 
 
-    //Service to get data from screen and save in database
+/*Service to get data from screen and save in database */
     app.post('/mock/mock-calllogfrm',(req,res) => {
        
         console.log(req.body.timeofcall); 
@@ -40,9 +40,7 @@
             reportedby  : req.body.reported_by,
             callpriority: req.body.call_priority,
             callseverity: req.body.call_severity
-        }
-
-        
+        }    
        // console.log(req.body.name);
         conn.query('INSERT INTO tb_calllogfrm SET ?', calllog, function (err, res) {
         
@@ -54,6 +52,18 @@
            console.log(err);
           });
     });
+/*Service to get data from database to table(call-log-view) */
+
+    app.get('/mock/mock-calllogview',(req,res)=>{
+        conn.query('SELECT * FROM tb_calllogfrm',(err,rows,fields)=>{
+            if(!err)
+            //res.send(rows);
+            console.log("Success");
+           else
+           console.log(err);
+          });
+
+  });
 
 /*Login-Auth User Details */ 
 const Login = {

@@ -28,13 +28,19 @@
               "src/sb-admin/bootstrap-social.css",
               "src/sb-admin/font-awesome.css",
               "src/sb-admin/bootstrap-classic.css",
-              "src/metisMenu/metisMenu.css"
+              "src/metisMenu/metisMenu.css",
+              "src/datatables/css/jquery.dataTables.min.css",
+              "src/datatables/css/dataTables.bootstrap4.css",
+              "src/datatables/css/dataTables.responsive.css"
             ],
             "scripts": [
               "src/sb-admin-js/jquery.js",
               "src/metisMenu/metisMenu.js",
               "src/sb-admin-js/bootstrap-classic.js",
-              "src/sb-admin-js/sb-admin-2.js"
+              "src/sb-admin-js/sb-admin-2.js",
+              "src/datatables/js/jquery.dataTables.min.js",
+              "src/datatables/js/dataTables.bootstrap4.min.js",
+              "src/datatables/js/dataTables.responsive.js"
             ]
           },
           "configurations": {

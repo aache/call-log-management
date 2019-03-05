@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { VerticalNavigationComponent } from './vertical-navigation/vertical-navigation.component';
 
+import { DataTablesModule } from 'angular-datatables';
 
 import { LoginAuthService } from './services/login/login-auth.service';
 import { AppSettings } from './app-settings';
@@ -19,6 +20,7 @@ import { PinkComponent } from './dashboard/pink/pink.component';
 import { CallLogFormComponent } from './call-log-form/call-log-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardService } from './services/Dashboard/dashboard.service';
+import { CallLogViewComponent } from './call-log-view/call-log-view.component';
 
 @NgModule({
   declarations: [
@@ -31,14 +33,16 @@ import { DashboardService } from './services/Dashboard/dashboard.service';
     RedComponent,
     YellowComponent,
     PinkComponent,
-    CallLogFormComponent
+    CallLogFormComponent,
+    CallLogViewComponent
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    DataTablesModule
   ],
   providers: [
     AppSettings,

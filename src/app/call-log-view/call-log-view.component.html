@@ -1,0 +1,55 @@
+<app-vertical-navigation></app-vertical-navigation>
+<div id="page-wrapper">
+  <div class="row">
+      <div class="col-lg-12">
+          <h1 class="page-header">Table View</h1>
+      </div>
+      <!-- /.col-lg-12 -->
+  </div>
+  
+  <!-- /.row -->
+  <div class="row">
+      <div class="col-lg-12">
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                  CAll LOG FORM VIEW
+              </div>
+              <!-- /.panel-heading -->
+              <div class="panel-body">
+                <table datatable [dtOptions]="dtOptions" class="row-border hover">
+                    <thead>
+                        <tr>
+                            <th>Name Of Person</th>
+                            <th>Phone Number</th>
+                            <th>Time Of Call</th>
+                            <th>Location</th>
+                            <th>Reported by</th>
+                            <th>Call Priority</th>
+                            <th>Call Severity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="odd gradeX" *ngFor="let result of Load">
+                            <td>{{result.uname}}</td>
+                            <td>{{result.phonenumber}}</td>
+                            <td>{{result.timeofcall}}</td>
+                            <td>{{result.location}}</td>
+                            <td>{{result.reportedby}}</td>
+                            <td>{{result.callpriority}}</td>
+                            <td>{{result.callseverity}}</td>
+                        </tr>
+                       
+                    </tbody>
+                </table>
+                
+                        
+              </div>
+            </div>
+       </div>
+   </div>
+</div>
+<div>
+       
+    
+    </div>
+    
