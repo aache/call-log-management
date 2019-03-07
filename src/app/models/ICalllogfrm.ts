@@ -1,7 +1,7 @@
 export interface ICalllogfrm{
     name : string;
     phone_number : number;
-    time_of_call : number;
+    time_of_call : string;
     Location : string;
     reported_by : string;
     call_priority : number;

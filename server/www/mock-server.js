@@ -57,8 +57,8 @@
     app.get('/mock/mock-calllogview',(req,res)=>{
         conn.query('SELECT * FROM tb_calllogfrm',(err,rows,fields)=>{
             if(!err)
-            //res.send(rows);
-            console.log("Success");
+            res.send(rows);
+            //console.log("Success");
            else
            console.log(err);
           });
