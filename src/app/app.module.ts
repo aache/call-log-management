@@ -21,6 +21,7 @@ import { CallLogFormComponent } from './call-log-form/call-log-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardService } from './services/Dashboard/dashboard.service';
 import { CallLogViewComponent } from './call-log-view/call-log-view.component';
+import { InventoryComponent } from './inventory/inventory.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { CallLogViewComponent } from './call-log-view/call-log-view.component';
     YellowComponent,
     PinkComponent,
     CallLogFormComponent,
-    CallLogViewComponent
+    CallLogViewComponent,
+    InventoryComponent
   ],
   imports: [
     HttpClientModule,
