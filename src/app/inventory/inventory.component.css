@@ -4,3 +4,12 @@
 .b{
     background-color: #e3f1a3;
 }
+.plus{
+    font-size: 12px;
+    float:right;
+    
+}
+
+.space{
+    margin: 8px 10px;
+}
