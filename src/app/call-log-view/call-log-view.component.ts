@@ -14,7 +14,7 @@ import { DataTablesModule } from 'angular-datatables';
 export class CallLogViewComponent implements OnInit {
 
 
-Load :any =[];
+load :any =[];
 dtOptions: DataTables.Settings = {};
 dtTrigger : Subject<any> = new Subject();
 
@@ -28,7 +28,8 @@ dtTrigger : Subject<any> = new Subject();
 
     //to get data from database
     this.CallService.getCallLogfrm().subscribe(result =>{
-      this.Load = result;
+      this.load = result;
+     
       this.dtTrigger.next();
       
     });

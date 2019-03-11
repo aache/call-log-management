@@ -13,7 +13,7 @@ export interface IPriority {
   providers :[CallLogFrmService]
 })
 export class CallLogFormComponent implements OnInit {
-  callpostmodel = new callpost('',8877799901,'12-10-2019','Bhiwandi','jhon',1,1);
+  callpostmodel = new callpost('','','','','',1,1);
   
   constructor(private callservice:CallLogFrmService) { 
   }
