@@ -1,19 +1,28 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { VerticalNavigationComponent } from './vertical-navigation/vertical-navigation.component';
 
+import { DataTablesModule } from 'angular-datatables';
 
 import { LoginAuthService } from './services/login/login-auth.service';
 import { AppSettings } from './app-settings';
 import { PrimaryComponent } from './dashboard/primary/primary.component';
 import { GreenComponent } from './dashboard/green/green.component';
 import { RedComponent } from './dashboard/red/red.component';
+import { YellowComponent } from './dashboard/yellow/yellow.component';
+import { PinkComponent } from './dashboard/pink/pink.component';
+import { CallLogFormComponent } from './call-log-form/call-log-form.component';
+import { HttpClientModule } from '@angular/common/http';
+import { DashboardService } from './services/Dashboard/dashboard.service';
+import { CallLogViewComponent } from './call-log-view/call-log-view.component';
+import { InventoryComponent } from './inventory/inventory.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,16 +31,25 @@ import { RedComponent } from './dashboard/red/red.component';
     VerticalNavigationComponent,
     PrimaryComponent,
     GreenComponent,
-    RedComponent
+    RedComponent,
+    YellowComponent,
+    PinkComponent,
+    CallLogFormComponent,
+    CallLogViewComponent,
+    InventoryComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
+    DataTablesModule
   ],
   providers: [
     AppSettings,
-    LoginAuthService
+    LoginAuthService,
+    DashboardService
   ],
   bootstrap: [AppComponent]
 })
