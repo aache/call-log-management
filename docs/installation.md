@@ -34,3 +34,22 @@
     All details of connectivity is Already there in a mock-server.js
 
     /***** Thank you u r good to go ******/
+
+### Stock-Inventory Tables :
+
+  Create Table : Query is
+  /* CREATE TABLE `db_call-log-mgt`.`tb_transition` (
+  `id` INT NOT NULL,
+  `stock_name` VARCHAR(45) NULL,
+  `quantity` INT NULL,
+  `transition_type` VARCHAR(20) NULL,
+  `date` VARCHAR(20) NULL,
+  `discription` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`)); */
+
+  /* CREATE TABLE `db_call-log-mgt`.`tb_stock_inventory` (
+  `id` INT NOT NULL,
+  `stock_name` VARCHAR(45) NULL,
+  `quantity` INT NULL,
+  PRIMARY KEY (`id`));
+  */
