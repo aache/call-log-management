@@ -26,7 +26,7 @@
         (err)?console.log(err):console.log(/*conn*/)+JSON.stringify(err,undefined,2);
     }); 
 
-/*Service to get data from screen and save in database */
+/*Service to post data from screen and save in database */
     app.post('/mock/mock-calllogfrm',(req,res) => {
        
         console.log(req.body.timeofcall); 
@@ -64,6 +64,28 @@
           });
 
   });
+
+  /* Servive to post data from screen to database of inventory.html */
+  app.post('/mock/mock-inventory',(req,res)=>{
+   //console.log(req.body.stock_name); 
+ 
+      var inv = {
+        stock_name : req.body.stock_name,
+        username : req.body.username,
+        quantity : req.body.quantity,
+        transition_type : req.body.transition_type,
+        date : req.body.date,
+        discription : req.body.discription
+      }
+      conn.query('INSERT INTO tb_transition SET ?', inv ,function(err,res){
+        if(!err)
+        
+        console.log("Success"); 
+         else
+         console.log(err);
+        });
+      });
+
 
 /*Login-Auth User Details */ 
 const Login = {

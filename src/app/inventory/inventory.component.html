@@ -19,7 +19,7 @@
                     <div class="form-group">
                         <label>Stock Items</label>
                         
-                        <select class="form-control">
+                        <select class="form-control" name="stock_name">
                             <option>Wire</option>
                             <option>Router</option>
                             <option>Switch</option>
@@ -29,16 +29,16 @@
                     </div>
                     <div class="form-group">
                         <label>Quantity :</label>
-                        <input class="form-control">      
+                        <input class="form-control" name="quantity">      
                     </div>
                     <div class="form-group">
                         <label>Date :</label>
-                        <input class="form-control">
+                        <input class="form-control" name="date">
                         
                     </div>
                     <div class="form-group">
                         <label>Description :</label>
-                        <textarea class="form-control" rows="3"></textarea>
+                        <textarea class="form-control" rows="3" name="discription"></textarea>
                     </div>
                     <div>
                    
@@ -60,12 +60,13 @@
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
-                    <form role="form">
+                    <form role="form" #Outward="ngForm" (ngSubmit)="onSubmit()" novalidate>
+                            {{Outward.value | json}}
                             <div class="form-group">
                                     <label class="">Stock Items</label>
                                     <div class="col-md-12 col-sm-12 col-lg-12">
                                     <div class="col-md-11">
-                                    <select class="form-control">
+                                    <select class="form-control" name="stock_name" required [(ngModel)]="outwardmodel.stock_name">
                                         <option>Wire</option>
                                         <option>Router</option>
                                         <option>Switch</option>
@@ -109,28 +110,28 @@
                                 </div>
                         <div class="form-group">
                             <label>UserName :</label>
-                            <input class="form-control">
+                            <input class="form-control" name="username" required [(ngModel)]="outwardmodel.username">
                                     
                         </div>
                         <div class="form-group ">
-                            <label>Name Of The Item :</label>
-                            <input class="form-control">
+                            <label>Transition Type :</label>
+                            <input class="form-control" name="transition_type" required [(ngModel)]="outwardmodel.transition_type">
                             
                         </div>
                         <div class="form-group">
                             <label>Quantity :</label>
-                            <input class="form-control">
+                            <input class="form-control" name="quantity" required [(ngModel)]="outwardmodel.quantity">
                             
                         </div>
                         <div class="form-group">
                             <label>Date :</label>
-                            <input class="form-control">
+                            <input class="form-control" name="date" type="date" required [(ngModel)]="outwardmodel.date">
                             
                         </div>
                         
                         <div class="form-group">
                             <label>Description :</label>
-                            <textarea class="form-control" rows="3"></textarea>
+                            <textarea class="form-control" rows="3" name="discription" required [(ngModel)]="outwardmodel.discription"></textarea>
                         </div>
                         <div>
                        
