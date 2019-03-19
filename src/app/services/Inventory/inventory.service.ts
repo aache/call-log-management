@@ -9,7 +9,7 @@ import { outwardpost } from 'src/app/models/outwardpost';
 })
 export class InventoryService {
 
-  private _urlinventory : string = AppSettings.API_ENDPOINT_MOCK + 'mock-inventory';
+  private _urlinventory : string = AppSettings.API_ENDPOINT_INVENTORY + 'mock-inventory';
   constructor(private http : HttpClient) { }
 
   outwardcall(outward : outwardpost){

@@ -65,7 +65,7 @@
 
   });
 
-  /* Servive to post data from screen to database of inventory.html */
+  /* Servive to post data from screen to database of inventory.html 
   app.post('/mock/mock-inventory',(req,res)=>{
    //console.log(req.body.stock_name); 
  
@@ -85,6 +85,7 @@
          console.log(err);
         });
       });
+      */
 
 
 /*Login-Auth User Details */ 
