@@ -16,11 +16,11 @@
             <!-- /.panel-heading -->
             <div class="panel-body">
                 <form role="form" #Inward="ngForm" (ngSubmit)="onAdd()" novalidate>
-                        {{Inward.value | json}}
+                        
                     <div class="form-group">
                         <label>Stock Items</label>
                         
-                        <select class="form-control" name="stock_id" required [(ngModel)]="inwardmodel.stock_id">
+                        <select class="form-control" name="stock_name" required [(ngModel)]="inwardmodel.stock_name">
                             <option>Wire</option>
                             <option>Router</option>
                             <option>Switch</option>
@@ -62,12 +62,12 @@
                 <!-- /.panel-heading -->
                 <div class="panel-body">
                     <form role="form" #Outward="ngForm" (ngSubmit)="onSubmit()" novalidate>
-                            {{Outward.value | json}}
+                        
                             <div class="form-group">
                                     <label class="">Stock Items</label>
                                     <div class="col-md-12 col-sm-12 col-lg-12">
                                     <div class="col-md-11">
-                                    <select class="form-control" name="stock_id" required [(ngModel)]="outwardmodel.stock_id">
+                                    <select class="form-control" name="stock_name" required [(ngModel)]="outwardmodel.stock_name">
                                         <option value="1">Wire</option>
                                         <option value="2">Router</option>
                                         <option value="3">Switch</option>

@@ -1,7 +1,7 @@
-export class Outwardpost {
+export class outwardpost {
     constructor(
       
-      public   stock_id : number ,
+      public   stock_name : string,
       public   username : string,
       public   quantity : number,
       public   transition_type : string,

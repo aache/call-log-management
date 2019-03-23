@@ -1,4 +1,4 @@
-export class Outwardpost {
+export class outwardpost {
     constructor(
       
       public   stock_id : number ,

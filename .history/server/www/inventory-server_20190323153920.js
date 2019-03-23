@@ -29,7 +29,7 @@ const express = require('express');
     console.log(req.body.stock_name); 
   
        var inv = {
-         stock_id  : req.body.stock_id,
+         stock_id  : req.body.stock_name,
          username : req.body.username,
          quantity : req.body.quantity,
          transition_type : req.body.transition_type,
