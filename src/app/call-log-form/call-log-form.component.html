@@ -40,11 +40,11 @@
                             <small class="alert-danger" *ngIf="phone_number.errors.pattern">Number should be in this format(8*********,91**********,+91**********,+91 *********,,+91-*********,0**********)</small>
                         </div>
                     </div>
-                    <div class="form-group">
+                   <!-- <div class="form-group">
                         <label>Time Of Call :</label>
-                        <input class="form-control" #time_of_call="ngModel" [class.alert-danger]="time_of_call.untouched" type="datetime-local" id="time_of_call" name="time_of_call" min="2000-01-02" required [(ngModel)]="callpostmodel.time_of_call">
-                          <p class="help-block">Select Date and Time !!</p>
+                        <input class="form-control" [disabled]="true" #time_of_call="ngModel" id="time_of_call" name="time_of_call" min="2000-01-02" required [(ngModel)]="callpostmodel.time_of_call">
                     </div>
+                    -->
                     <div class="form-group" >
                         <label>Vlan :</label>
                         <input class="form-control " [class.alert-danger]="vlan.invalid && vlan.touched"

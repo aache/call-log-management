@@ -15,11 +15,12 @@
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
-                <form role="form">
+                <form role="form" #Inward="ngForm" (ngSubmit)="onAdd()" novalidate>
+                        {{Inward.value | json}}
                     <div class="form-group">
                         <label>Stock Items</label>
                         
-                        <select class="form-control" name="stock_name">
+                        <select class="form-control" name="stock_name" required [(ngModel)]="inwardmodel.stock_name">
                             <option>Wire</option>
                             <option>Router</option>
                             <option>Switch</option>
@@ -29,7 +30,7 @@
                     </div>
                     <div class="form-group">
                         <label>Quantity :</label>
-                        <input class="form-control" name="quantity">      
+                        <input class="form-control" name="quantity" required [(ngModel)]="inwardmodel.quantity">      
                     </div>
                     <div class="form-group">
                         <label>Date :</label>
@@ -38,7 +39,7 @@
                     </div>
                     <div class="form-group">
                         <label>Description :</label>
-                        <textarea class="form-control" rows="3" name="discription"></textarea>
+                        <textarea class="form-control" rows="3" name="discription" required [(ngModel)]="inwardmodel.discription"></textarea>
                     </div>
                     <div>
                    

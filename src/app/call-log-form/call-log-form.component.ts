@@ -13,7 +13,16 @@ export interface IPriority {
   providers :[CallLogFrmService]
 })
 export class CallLogFormComponent implements OnInit {
-  callpostmodel = new callpost('','','','','','','','',1,1);
+    today = new Date().toLocaleDateString('en-GB', {
+      weekday : 'short',
+         day : 'numeric',
+         month : 'short',
+         year : 'numeric',
+         hour12 : true,
+         hour : 'numeric',
+        minute : 'numeric'
+      }).split(' ').join(' ');
+  callpostmodel = new callpost('','',this.today,'','','','','',1,1);
   
   constructor(private callservice:CallLogFrmService) { 
   }

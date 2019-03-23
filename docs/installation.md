@@ -37,7 +37,7 @@
 
 ### Stock-Inventory Tables :
 
-  Create Table : Query is
+  Create Table : Query for Transition table is
   /* CREATE TABLE `db_call-log-mgt`.`tb_transition` (
   `id` INT NOT NULL,
   `stock_name` VARCHAR(45) NULL,
@@ -47,6 +47,7 @@
   `discription` VARCHAR(45) NULL,
   PRIMARY KEY (`id`)); */
 
+Create Table : Query for Stock table is
   /* CREATE TABLE `db_call-log-mgt`.`tb_stock_inventory` (
   `id` INT NOT NULL,
   `stock_name` VARCHAR(45) NULL,
