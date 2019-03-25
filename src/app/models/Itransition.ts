@@ -1,4 +1,4 @@
-export interface Itransition{
+export interface ITransition{
     id : number,
     stock_name : string,
     username : string,
@@ -6,5 +6,4 @@ export interface Itransition{
     transition_type : string,
     date : string,
     discription : string
-
 }

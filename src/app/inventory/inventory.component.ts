@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Itransition } from 'src/app/models/Itransition';
 import { Outwardpost } from '../models/Outwardpost';
 import { InventoryService } from '../services/Inventory/inventory.service';
 @Component({
@@ -12,7 +11,7 @@ export class InventoryComponent implements OnInit {
   inwardmodel = new Outwardpost(null,null,null ,null,'12-03-2019','');
   
   constructor(private service : InventoryService) { }
-onAdd(){
+  onInwardClick(){
   this.service.outwardcall(this.inwardmodel)
   .subscribe(
     data => console.log('success!',data),
@@ -20,7 +19,7 @@ onAdd(){
   )
 }
 
-  onSubmit(){
+  onOutwardClick(){
     this.service.outwardcall(this.outwardmodel)
     .subscribe(
       data => console.log('success!',data),

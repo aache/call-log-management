@@ -55,10 +55,13 @@ Create Table : Query for Stock table is
   PRIMARY KEY (`id`));
   */
 
-  -------------- Execute SQL below this line ----------------
+ 
 
 alter table tb_transition modify column id int auto_increment ; 
 alter table tb_stock_inventory modify column id int auto_increment ; 
 alter table tb_transition drop column stock_name ; 
 alter table  tb_transition add column stock_id int not null ; 
 alter table  tb_transition add column username varchar(30) null ; 
+
+ -------------- Execute SQL below this line (03:23:2019) ----------------
+alter table tb_transition modify column date timestamp ;

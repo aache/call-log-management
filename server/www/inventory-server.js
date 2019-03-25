@@ -33,7 +33,7 @@ const express = require('express');
          username : req.body.username,
          quantity : req.body.quantity,
          transition_type : req.body.transition_type,
-         date : req.body.date,
+         date : new Date(),
          discription : req.body.discription
        }
        conn.query('INSERT INTO tb_transition SET ?', inv ,function(err,res){

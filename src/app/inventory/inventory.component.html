@@ -15,7 +15,7 @@
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
-                <form role="form" #Inward="ngForm" (ngSubmit)="onAdd()" novalidate>
+                <form role="form" #Inward="ngForm" (ngSubmit)="onInwardClick()" novalidate>
                         {{Inward.value | json}}
                     <div class="form-group">
                         <label>Stock Items</label>
@@ -61,7 +61,7 @@
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
-                    <form role="form" #Outward="ngForm" (ngSubmit)="onSubmit()" novalidate>
+                    <form role="form" #Outward="ngForm" (ngSubmit)="onOutwardClick()" novalidate>
                             {{Outward.value | json}}
                             <div class="form-group">
                                     <label class="">Stock Items</label>

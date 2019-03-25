@@ -1,4 +1,6 @@
-export class callpost {
+import { ICalllogfrm } from './ICalllogfrm';
+
+export class callpost implements ICalllogfrm{
     constructor(
        public name : string,
        public phone_number : string,
