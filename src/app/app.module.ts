@@ -22,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DashboardService } from './services/Dashboard/dashboard.service';
 import { CallLogViewComponent } from './call-log-view/call-log-view.component';
 import { InventoryComponent } from './inventory/inventory.component';
+import { StockItemsComponent } from './stock-items/stock-items/stock-items.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { InventoryComponent } from './inventory/inventory.component';
     PinkComponent,
     CallLogFormComponent,
     CallLogViewComponent,
-    InventoryComponent
+    InventoryComponent,
+    StockItemsComponent
   ],
   imports: [
     HttpClientModule,
