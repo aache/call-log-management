@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AppSettings } from 'src/app/app-settings';
 import { HttpClient } from '@angular/common/http';
-import { Outwardpost } from 'src/app/models/outwardpost';
+import { ITransition } from 'src/app/models/Itransition';
+import { Observable } from 'rxjs';
+import { Outwardpost } from 'src/app/models/Outwardpost';
 @Injectable({
   providedIn: 'root'
 })
