@@ -1,9 +1,9 @@
 export interface ITransition{
     id : number,
-    stock_name : string,
+    stock_id : number,
     username : string,
     quantity : number,
     transition_type : string,
-    date : string,
+    date : Date,
     discription : string
 }

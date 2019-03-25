@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AppSettings } from 'src/app/app-settings';
 import { HttpClient } from '@angular/common/http';
-import { callpost } from 'src/app/models/callpost';
+import { Callpost } from 'src/app/models/Callpost';
 import { ICalllogfrm } from 'src/app/models/ICalllogfrm';
 import { Observable } from 'rxjs';
 
@@ -13,7 +13,7 @@ export class CallLogFrmService {
   
   constructor(private http : HttpClient) { }
 
-call(calli : callpost){
+call(calli : Callpost){
   return this.http.post<any>(this._urlcalllogfrm,calli);
   }
 

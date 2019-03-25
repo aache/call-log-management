@@ -35,7 +35,7 @@
         var calllog = {
             uname       : req.body.name,
             phonenumber : req.body.phone_number,
-            timeofcall  : req.body.time_of_call,
+            timeofcall  : new Date(),
             vlan        : req.body.vlan,
             zone        : req.body.zone,
             user_id     : req.body.user_id,

@@ -1,7 +1,7 @@
 export interface ICalllogfrm{
      name : string;
      phone_number : string;
-     time_of_call : string;
+     time_of_call : Date;
      vlan : string;
      zone : string;
      user_id : string;
@@ -9,5 +9,5 @@ export interface ICalllogfrm{
      reported_by : string;
      call_priority : number;
      call_severity : number;
-    
+         
 }

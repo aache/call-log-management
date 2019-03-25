@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CallLogFrmService } from '../services/Call-Log-Form/call-log-frm.service';
-import { callpost } from '../models/callpost';
+import { Callpost } from '../models/Callpost';
 
 export interface IPriority {
   value: number;
@@ -22,7 +22,7 @@ export class CallLogFormComponent implements OnInit {
          hour : 'numeric',
         minute : 'numeric'
       }).split(' ').join(' ');
-  callpostmodel = new callpost('','',this.today,'','','','','',1,1);
+  callpostmodel = new Callpost('','',null,'','','','','',1,1);
   
   constructor(private callservice:CallLogFrmService) { 
   }

@@ -65,3 +65,6 @@ alter table  tb_transition add column username varchar(30) null ;
 
  -------------- Execute SQL below this line (03:23:2019) ----------------
 alter table tb_transition modify column date timestamp ;
+
+--------------Execute SQL below this line (25:03:2019)-----
+alter table `db_call-log-mgt`.tb_calllogfrm modify column timeofcall timestamp ;

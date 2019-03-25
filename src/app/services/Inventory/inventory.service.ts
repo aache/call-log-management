@@ -3,7 +3,7 @@ import { AppSettings } from 'src/app/app-settings';
 import { HttpClient } from '@angular/common/http';
 import { ITransition } from 'src/app/models/Itransition';
 import { Observable } from 'rxjs';
-import { Outwardpost } from 'src/app/models/Outwardpost';
+import { Transition } from 'src/app/models/Transition';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,11 +11,11 @@ export class InventoryService {
 
   private _urlinventory : string = AppSettings.API_ENDPOINT_INVENTORY + 'mock-inventory';
   constructor(private http : HttpClient) { }
-  inwardcall( model: Outwardpost){
+  inwardcall( model: Transition){
     return this.http.post<any>(this._urlinventory,model);
   };
 
-  outwardcall(model: Outwardpost){
+  outwardcall(model: Transition){
     return this.http.post<any>(this._urlinventory,model);
   };
 }

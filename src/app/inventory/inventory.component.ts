@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Outwardpost } from '../models/Outwardpost';
+import { Transition } from '../models/Transition';
 import { InventoryService } from '../services/Inventory/inventory.service';
 @Component({
   selector: 'app-inventory',
@@ -7,8 +7,8 @@ import { InventoryService } from '../services/Inventory/inventory.service';
   styleUrls: ['./inventory.component.css']
 })
 export class InventoryComponent implements OnInit {
-  outwardmodel = new Outwardpost(null,'',null ,'','','');
-  inwardmodel = new Outwardpost(null,null,null ,null,'12-03-2019','');
+  outwardmodel = new Transition(null,null,'' ,null,'',null,'');
+  inwardmodel = new Transition(null,null,null ,null,'',null,'');
   
   constructor(private service : InventoryService) { }
   onInwardClick(){

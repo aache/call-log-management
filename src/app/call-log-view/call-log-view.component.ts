@@ -12,7 +12,15 @@ import { DataTablesModule } from 'angular-datatables';
   styleUrls: ['./call-log-view.component.css']
 })
 export class CallLogViewComponent implements OnInit {
-
+  today = new Date().toLocaleDateString('en-GB', {
+    weekday : 'short',
+       day : 'numeric',
+       month : 'short',
+       year : 'numeric',
+       hour12 : true,
+       hour : 'numeric',
+      minute : 'numeric'
+    }).split(' ').join(' ');
 
 load :any =[];
 dtOptions: DataTables.Settings = {};
