@@ -26,7 +26,7 @@ export class InventoryComponent implements OnInit {
       error => console.log('Error!!',error)
     )
   }
-  ngOnInit() {
+   ngOnInit() {
   }
 
 }

@@ -24,7 +24,7 @@ const express = require('express');
         (err)?console.log(err):console.log(/*conn*/)+JSON.stringify(err,undefined,2);
     }); 
 
-    /* Servive to post data from screen to database of inventory.html */
+    /* Service to post data from screen to database of inventory.html */
   app.post('/mock/mock-inventory',(req,res)=>{
     console.log(req.body.stock_name); 
   
@@ -43,6 +43,24 @@ const express = require('express');
           else
           console.log(err);
          });
+       });
+
+
+       /*Service to post data from screen to database of Stock-Items */
+
+       app.post('/mock/mock-stock-items',(req,res)=>{
+        console.log(req.body.stock_name); 
+         var stk ={
+           stock_name : req.body.stock_name,
+           quantity : req.body.quantity,
+         }
+         conn.query('INSERT INTO tb_stock_inventory SET ?',stk ,function(err,res){
+          if(!err)
+         
+          console.log("Success"); 
+           else
+           console.log(err);
+          });
        });
        app.listen(port, () => console.log(`Example app Inventory listening on port ${port}!`))
     

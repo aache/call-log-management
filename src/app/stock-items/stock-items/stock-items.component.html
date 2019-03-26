@@ -6,44 +6,61 @@
           </div>
           <!-- /.col-lg-12 -->
       </div>
+      <div class="col-md-1"><button class="btn primary btn-primary btn-default" data-toggle="modal" data-target="#myModal">+</button>
+        <!-- Modal -->
+        <app-stock-items-popup></app-stock-items-popup>
+         <!-- /.modal -->
+    </div>
       <!-- /.row -->
-      <div class="row">
-          <div class="col-lg-6">
-              <div class="panel panel-default">
-                  <div class="panel-heading">
-                      Form Elements :-
-                  </div>
-<div class="panel-body">
-  <div class="row">
-      <div class="col-lg-8">
-                              <!-- {{calllogfrm.value | json}}
-                  <hr />
-                  {{callpostmodel | json}} 
-                  {{calllogfrm.form.valid}}-->
-                  <!--form-->
-                  <form role="form">
-                    <div class="form-group">
-                        <label>Name Of The Item :</label>
-                        <input class="form-control">      
-                    </div>
-                    <div class="form-group">
-                        <label>Quantity :</label>
-                        <input class="form-control">      
-                    </div>
-                    <button type="submit" class="btn btn-default space">Submit</button>
-                    <button type="reset" class="btn btn-default space">Reset </button>
-                    <button type="button" class="btn btn-default space">Delete</button>
-                  
-      
-                    
-                   </form>
+      <div class="col-lg-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Context Classes
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Username</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="success">
+                                <td>1</td>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr class="info">
+                                <td>2</td>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                            </tr>
+                            <tr class="warning">
+                                <td>3</td>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                                <td>@twitter</td>
+                            </tr>
+                            <tr class="danger">
+                                <td>4</td>
+                                <td>John</td>
+                                <td>Smith</td>
+                                <td>@jsmith</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-               
-      <!-- /.col-lg-6 (nested) -->
-  </div>
-  <!-- /.row (nested) -->
-</div>
-</div>
-<!-- /#page-wrapper -->
-</div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
 </div>

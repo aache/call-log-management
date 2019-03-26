@@ -14,8 +14,8 @@ const routes: Routes = [
   {path: 'call-log-form' , component: CallLogFormComponent},
   {path: 'call-log-view' , component: CallLogViewComponent},
   {path: 'inventory' , component: InventoryComponent },
-  {path: 'stock-items' , component: StockItemsComponent}
-];
+  {path: 'stock-items' , component: StockItemsComponent},
+  ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
