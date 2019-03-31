@@ -6,7 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CallLogFormComponent } from './call-log-form/call-log-form.component';
 import { CallLogViewComponent } from './call-log-view/call-log-view.component';
 import { InventoryComponent } from './inventory/inventory.component';
-import { StockItemsComponent } from './stock-items/stock-items/stock-items.component';
+import { StockItemsComponent } from './stock-items/stock-items.component';
 
 const routes: Routes = [
   {path: 'dashboard' , component: DashboardComponent},
