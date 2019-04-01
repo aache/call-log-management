@@ -22,7 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DashboardService } from './services/Dashboard/dashboard.service';
 import { CallLogViewComponent } from './call-log-view/call-log-view.component';
 import { InventoryComponent } from './inventory/inventory.component';
-import { StockItemsComponent } from './stock-items/stock-items/stock-items.component';
+import { StockItemsComponent } from './stock-items/stock-items.component';
 import { StockItemsPopupComponent } from './stock-items-popup/stock-items-popup/stock-items-popup.component';
 
 @NgModule({
