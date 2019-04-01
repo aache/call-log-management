@@ -12,7 +12,7 @@ export class InventoryComponent implements OnInit {
   
   constructor(private service : InventoryService) { }
   onInwardClick(){
-  this.service.outwardcall(this.inwardmodel)
+  this.service.inwardcall(this.inwardmodel)
   .subscribe(
     data => console.log('success!',data),
     error => console.log('Error!!',error)

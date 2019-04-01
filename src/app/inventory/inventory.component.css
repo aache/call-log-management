@@ -10,6 +10,10 @@
     
 }
 
-.space{
-    margin: 8px 10px;
+.s{
+    margin:-10px 3px;
+    position: relative;
+    top:24px;
+    padding-top: 10px;
+    float:right;
 }

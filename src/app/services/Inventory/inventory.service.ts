@@ -14,8 +14,8 @@ export class InventoryService {
   inwardcall( model: Transition){
     return this.http.post<any>(this._urlinventory,model);
   };
-
+  private _urlinventoryOutward : string = AppSettings.API_ENDPOINT_INVENTORY + 'mock-inventory-out';
   outwardcall(model: Transition){
-    return this.http.post<any>(this._urlinventory,model);
+    return this.http.post<any>(this._urlinventoryOutward,model);
   };
 }

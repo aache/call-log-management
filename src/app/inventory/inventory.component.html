@@ -16,7 +16,7 @@
             <!-- /.panel-heading -->
             <div class="panel-body">
                 <form role="form" #Inward="ngForm" (ngSubmit)="onInwardClick()" novalidate>
-                        {{Inward.value | json}}
+                       <!-- {{Inward.value | json}}-->
                     <div class="form-group">
                         <label>Stock Items</label>
                         <input class="form-control" name="stock_id" required [(ngModel)]="inwardmodel.stock_id">  
@@ -49,20 +49,20 @@
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
+                        <div class="s">   
+                                <!-- Modal -->
+                                <div class="col-md-1"><button class="btn primary btn-primary btn-default" data-toggle="modal" data-target="#myModal">+</button>
+                                </div>                              
+                                <app-stock-items-popup></app-stock-items-popup>
+                                <!-- /.modal -->
+                        </div>
                     <form role="form" #Outward="ngForm" (ngSubmit)="onOutwardClick()" novalidate>
-                            {{Outward.value | json}}
+                           <!-- {{Outward.value | json}}-->
                             <div class="form-group">
-                                    <label class="">Stock Items</label>
-                                    <div class="col-md-12 col-sm-12 col-lg-12">
-                                    <div class="col-md-11">
+                                    <label class="">Stock Items :</label>
+                                    <div class="form-group col-md-11">
                                         <input class="form-control" name="stock_id" required [(ngModel)]="outwardmodel.stock_id">
-                                    </div>
-                                    <div class="col-md-1"><button class="btn primary btn-primary btn-default" data-toggle="modal" data-target="#myModal">+</button>
-                                        <!-- Modal -->
-                                        <app-stock-items-popup></app-stock-items-popup>
-                                         <!-- /.modal -->
-                                    </div>
-                                    </div>
+                                    </div>                                                                  
                                 </div>
                         <div class="form-group">
                             <label>UserName :</label>
