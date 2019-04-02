@@ -8,7 +8,7 @@
       </div>
       <div class="s">   
             <!-- Modal -->
-            <div class="col-md-1"><button class="btn primary btn-success btn-default" data-toggle="modal" data-target="#myModal">ADD</button>
+            <div class="col-md-1"><button class="btn primary btn-success btn-default" data-toggle="modal" data-target="#myModal">+ ADD NEW STOCK ITEMS</button>
             </div>          
             <app-stock-items-popup></app-stock-items-popup>
             <!-- /.modal -->
@@ -36,7 +36,7 @@
                                 <td>{{result.id}}</td>
                                 <td>{{result.stock_name}}</td>
                                 <td>{{result.quantity}}</td>
-                                <td> <button type="button" class="btn btn-default btn-sm btndel">
+                                <td> <button type="button" (click)="onDeleteclick()" class="btn btn-default btn-sm btndel">
                                     <span class="glyphicon glyphicon-trash"></span> Delete 
                                   </button></td>
                             </tr>

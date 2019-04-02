@@ -13,12 +13,16 @@ dtOptions: DataTables.Settings = {};
 dtTrigger : Subject<any> = new Subject();
 
   constructor(private stockservice : StockItemsService) { }
-
+onDeleteclick(){
+  this.stockservice.deletestockitems().subscribe(data=>this.stockload.id=data.id);
+}
   ngOnInit() {
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 10
     };
+
+    
     //to get data from database
     this.stockservice.getstockitems().subscribe(result =>{
       this.stockload = result;

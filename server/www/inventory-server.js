@@ -120,7 +120,7 @@ const express = require('express');
 
        /* Service to delete data from Database and Screen of Stock_Items */
        app.delete('/mock/mock-stock-items-del',(req,res)=>{
-         conn.query('DELETE * FROM tb_stock_inventory where id = ?',(err,rows,fields)=>{
+         conn.query('DELETE * FROM tb_stock_inventory where id = ?'[req.body.stock_id],(err,rows,fields)=>{
            if(!err)
            console.log("Deleted");
            else

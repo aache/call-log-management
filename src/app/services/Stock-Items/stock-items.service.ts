@@ -23,10 +23,10 @@ private _urlstockitems : string = AppSettings.API_ENDPOINT_INVENTORY + 'mock-sto
   return httpOutput;
   }
 
-  /* to get data from database and display on page stock-items.html */
+  /* to DELETE data from database and display on page stock-items.html */
   private _urlstockitemsdelete : string = AppSettings.API_ENDPOINT_INVENTORY + 'mock-stock-items-del';
-  deletestockitems(id : number): Observable<IStockitems>{
-  const httpOutput = this.http.delete<IStockitems>(this._urlstockitemsview);
+  deletestockitems(): Observable<IStockitems>{
+  const httpOutput = this.http.delete<IStockitems>(this._urlstockitemsdelete);
   console.log('Delete http stock-items data from database');
   return httpOutput;
 
