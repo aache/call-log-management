@@ -11,7 +11,7 @@ export class InventoryComponent implements OnInit {
   outwardmodel = new Transition(null,1,'','' ,null,'',null,'');
   inwardmodel = new Transition(null,1,'',null ,null,'',null,'');
  
-  constructor(private service : InventoryService,private stockservice : StockItemsService) { }
+  constructor(private service : InventoryService) { }
   onInwardClick(){
   this.service.inwardcall(this.inwardmodel)
   .subscribe(
@@ -29,7 +29,7 @@ export class InventoryComponent implements OnInit {
   }
    ngOnInit() {
      //to get data from database
-   this.stockservice.getstockitems().subscribe()
+   this.service.getstockview().subscribe()
   }
 
 }
