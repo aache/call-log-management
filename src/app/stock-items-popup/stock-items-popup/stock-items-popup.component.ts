@@ -8,7 +8,7 @@ import { Stockitems } from 'src/app/models/Stockitems';
   styleUrls: ['./stock-items-popup.component.css']
 })
 export class StockItemsPopupComponent implements OnInit {
-  stockmodel = new Stockitems('',null);
+  stockmodel = new Stockitems(null,'',null);
   constructor(private ser : StockItemsService) { }
   onStockClick(){
     this.ser.stockpost(this.stockmodel)

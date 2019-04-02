@@ -4,6 +4,7 @@ export class Transition implements ITransition{
         constructor(
       public id: number,
       public   stock_id : number ,
+      public   stock_name:string,
       public   username : string,
       public   quantity : number,
       public   transition_type : string,

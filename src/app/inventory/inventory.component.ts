@@ -7,8 +7,8 @@ import { InventoryService } from '../services/Inventory/inventory.service';
   styleUrls: ['./inventory.component.css']
 })
 export class InventoryComponent implements OnInit {
-  outwardmodel = new Transition(null,null,'' ,null,'',null,'');
-  inwardmodel = new Transition(null,null,null ,null,'',null,'');
+  outwardmodel = new Transition(null,1,'','' ,null,'',null,'');
+  inwardmodel = new Transition(null,1,'',null ,null,'',null,'');
   
   constructor(private service : InventoryService) { }
   onInwardClick(){
