@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Transition } from '../models/Transition';
 import { InventoryService } from '../services/Inventory/inventory.service';
+import { StockItemsService } from '../services/Stock-Items/stock-items.service';
 @Component({
   selector: 'app-inventory',
   templateUrl: './inventory.component.html',
@@ -9,8 +10,8 @@ import { InventoryService } from '../services/Inventory/inventory.service';
 export class InventoryComponent implements OnInit {
   outwardmodel = new Transition(null,1,'','' ,null,'',null,'');
   inwardmodel = new Transition(null,1,'',null ,null,'',null,'');
-  
-  constructor(private service : InventoryService) { }
+ 
+  constructor(private service : InventoryService,private stockservice : StockItemsService) { }
   onInwardClick(){
   this.service.inwardcall(this.inwardmodel)
   .subscribe(
@@ -27,6 +28,8 @@ export class InventoryComponent implements OnInit {
     )
   }
    ngOnInit() {
+     //to get data from database
+   this.stockservice.getstockitems().subscribe()
   }
 
 }
