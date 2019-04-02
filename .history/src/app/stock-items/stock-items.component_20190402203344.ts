@@ -15,7 +15,7 @@ dtTrigger : Subject<any> = new Subject();
   constructor(private stockservice : StockItemsService) { }
 onDeleteclick(id){
   console .log (id);
-  this.stockservice.deletestockitems(id).subscribe(data=>this.stockload.id=data.id);
+  //this.stockservice.deletestockitems().subscribe(data=>this.stockload.id=data.id);
 }
   ngOnInit() {
     this.dtOptions = {
