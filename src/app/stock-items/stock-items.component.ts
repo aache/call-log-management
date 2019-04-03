@@ -16,6 +16,7 @@ dtTrigger : Subject<any> = new Subject();
 onDeleteclick(id){
   console .log (id);
   this.stockservice.deletestockitems(id).subscribe(data=>this.stockload.id=data.id);
+  window.location.reload();
 }
   ngOnInit() {
     this.dtOptions = {

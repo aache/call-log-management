@@ -16,6 +16,7 @@ export class StockItemsPopupComponent implements OnInit {
       data => console.log('success!',data),
       error => console.log('Error!!',error)
     )
+      window.location.reload();
   }
   ngOnInit() {
   }
