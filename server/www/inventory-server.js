@@ -85,10 +85,6 @@ const express = require('express');
          });
        });
        
-
-    
-
-
        /*Service to post data from screen to database of Stock-Items */
 
        app.post('/mock/mock-stock-items',(req,res)=>{
@@ -129,5 +125,15 @@ const express = require('express');
          })
        })
 
+       /*Service to select items from transition table on click of item name in stock-items.html */
+       app.get('/mock/mock-stock-items-popup-view',(req,res)=>{
+         conn.query('SELECT * FROM tb_transition',(err,rows,fields)=>{
+           if(!err)
+           res.send(rows);
+           else
+           console.log(err);
+          })
+
+       })
        app.listen(port, () => console.log(`Example app Inventory listening on port ${port}!`))
     

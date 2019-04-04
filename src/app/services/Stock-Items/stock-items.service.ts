@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Stockitems } from 'src/app/models/Stockitems';
 import { Observable } from 'rxjs';
 import { IStockitems } from 'src/app/models/IStockitems';
+import { ITransition } from 'src/app/models/ITransition';
 
 @Injectable({
   providedIn: 'root'
@@ -30,5 +31,13 @@ private _urlstockitems : string = AppSettings.API_ENDPOINT_INVENTORY + 'mock-sto
   console.log('Delete http stock-items data from database');
   return httpOutput;
 
+  }
+
+  /* To Select data from tb_transaction on select of stock-name  */
+  private _urlstockitemspopupview : string = AppSettings.API_ENDPOINT_INVENTORY + 'mock-stock-items-popup-view';
+  gettransaction(): Observable<ITransition>{
+    const httpOutput = this.http.get<ITransition>(this._urlstockitemspopupview);
+    console.log('Select http stock-items data from database');
+    return httpOutput;
   }
 }

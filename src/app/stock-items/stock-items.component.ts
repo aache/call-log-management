@@ -18,6 +18,7 @@ onDeleteclick(id){
   this.stockservice.deletestockitems(id).subscribe(data=>this.stockload.id=data.id);
   window.location.reload();
 }
+
   ngOnInit() {
     this.dtOptions = {
       pagingType: 'full_numbers',

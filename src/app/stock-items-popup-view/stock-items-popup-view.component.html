@@ -1,0 +1,53 @@
+<!-- Modal -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header b">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title " id="myModalLabel">Transition Table</h4>
+          </div>
+          <div class="modal-body">
+                            <div>
+                              <div class="panel panel-default">
+                                  <div class="panel-heading">
+                                      Transition Entry Of Stock Items
+                                  </div>
+                                  <!-- /.panel-heading -->
+                                  <div class="panel-body">
+                                      <div class="table-responsive">
+                                          <table class="table">
+                                              <thead>
+                                                  <tr class="info">
+                                                      <th>ID</th>
+                                                      <th>Date</th>
+                                                      <th>Quantity</th>
+                                                      <th>Description</th>
+                                                  </tr>
+                                              </thead>
+                                              <tbody>
+                                                  
+                                                  <tr class="warning" *ngFor='let res of transaction'>
+                                                      <td>{{res.id}}</td>
+                                                      <td>{{res.date}}</td>
+                                                      <td>{{res.quantity}}</td>
+                                                      <td>{{res.discription}}</td>
+                                                  </tr>
+                                                 
+                                              </tbody>
+                                          </table>
+                                      </div>
+                                      <!-- /.table-responsive -->
+                                  </div>
+                                  <!-- /.panel-body -->
+                              </div>
+                              <!-- /.panel -->
+                          </div>
+                          <!-- /.col-lg-6 -->
+          </div>
+          
+      </div>
+      <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
