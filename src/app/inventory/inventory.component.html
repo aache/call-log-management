@@ -57,10 +57,11 @@
                                 <!-- /.modal -->
                         </div>
                     <form role="form" #Outward="ngForm" (ngSubmit)="onOutwardClick()" novalidate>
-                           <!-- {{Outward.value | json}}-->
+                           {{Outward.value | json}}
                             <div class="form-group">
                                     <label class="">Stock Items :</label>
                                     <div class="form-group col-md-11">
+                                            <input class="form-control" type="hidden" name="stock_id" required [(ngModel)]="outwardmodel.stock_id">
                                         <input class="form-control" name="stock_name" required [(ngModel)]="outwardmodel.stock_name">
                                     </div>                                                                  
                                 </div>
