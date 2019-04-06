@@ -123,17 +123,17 @@ const express = require('express');
            else
            console.log(err);
          })
-       })
+       });
 
        /*Service to select items from transition table on click of item name in stock-items.html */
        app.get('/mock/mock-stock-items-popup-view',(req,res)=>{
-         conn.query('SELECT * FROM tb_transition',(err,rows,fields)=>{
+         conn.query('SELECT * FROM tb_transition where ?',{stock_id :req.query.stock_id},(err,rows,fields)=>{
            if(!err)
            res.send(rows);
            else
            console.log(err);
           })
 
-       })
+       });
        app.listen(port, () => console.log(`Example app Inventory listening on port ${port}!`))
     

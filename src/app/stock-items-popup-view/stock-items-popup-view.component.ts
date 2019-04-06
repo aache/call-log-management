@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, SimpleChange } from '@angular/core';
 import { StockItemsService } from '../services/Stock-Items/stock-items.service';
 
 @Component({
@@ -8,10 +8,29 @@ import { StockItemsService } from '../services/Stock-Items/stock-items.service';
 })
 export class StockItemsPopupViewComponent implements OnInit {
 transaction : any=[];
+
+@Input()
+stock_id : number ;
+
+
   constructor(private stockservice : StockItemsService) { }
 
   ngOnInit() {
-    this.stockservice.gettransaction().subscribe(data=>{this.transaction=data;});
+   
   }
 
+  ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
+    let log: string[] = [];
+    for (let propName in changes) {
+      let changedProp = changes[propName];
+      let to = JSON.stringify(changedProp.currentValue);
+      console.log(changedProp);
+      console.log(changedProp.currentValue);
+      
+    }
+    this.stockservice.gettransaction(this.stock_id).subscribe(data=>{this.transaction=data;});
+  }
+
+
+  
 }

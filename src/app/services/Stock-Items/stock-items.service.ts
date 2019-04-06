@@ -35,8 +35,8 @@ private _urlstockitems : string = AppSettings.API_ENDPOINT_INVENTORY + 'mock-sto
 
   /* To Select data from tb_transaction on select of stock-name  */
   private _urlstockitemspopupview : string = AppSettings.API_ENDPOINT_INVENTORY + 'mock-stock-items-popup-view';
-  gettransaction(): Observable<ITransition>{
-    const httpOutput = this.http.get<ITransition>(this._urlstockitemspopupview);
+  gettransaction(stock_id : number): Observable<ITransition>{
+    const httpOutput = this.http.get<ITransition>(this._urlstockitemspopupview + "?stock_id=" + stock_id);
     console.log('Select http stock-items data from database');
     return httpOutput;
   }

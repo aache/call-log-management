@@ -12,6 +12,8 @@ stockload : any =[];
 dtOptions: DataTables.Settings = {};
 dtTrigger : Subject<any> = new Subject();
 
+selected_stock_id : number ; 
+
   constructor(private stockservice : StockItemsService) { }
 onDeleteclick(id){
   console .log (id);
@@ -29,6 +31,10 @@ onDeleteclick(id){
       this.stockload = result;
       this.dtTrigger.next();
     });
+  }
+
+  onShowModal(id : number){
+    this.selected_stock_id = id ;
   }
 
 }
