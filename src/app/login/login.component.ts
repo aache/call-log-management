@@ -4,6 +4,7 @@ import { LoginAuthService } from '../services/login/login-auth.service';
 import { AppSettings } from '../app-settings';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthenticationService } from '../services/login/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -18,8 +19,12 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private loginAuthService: LoginAuthService,
     private activatedRoute: ActivatedRoute,
-    private router: Router
-  ) {}
+    private router: Router,
+    private authenticationservice : AuthenticationService
+  ) {
+    
+  }
+  
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -42,7 +47,11 @@ export class LoginComponent implements OnInit {
       // this.loginAuthService.printLogin(this.f.username.value, this.f.password.value);
       this.loginAuthService.loginAuth(this.f.username.value, this.f.password.value).subscribe(data => {
         console.log(data);
+        var time = new Date().getTime() / 1000 + 330*60;
+        this.authenticationservice.set("user", { "username": this.f.username.value,"password":this.f.password.value, "Login_Time": time});
+    console.log(this.authenticationservice.get("user"));
         if (data) {
+          
           this.router.navigate(['/dashboard']);
         } else {
            alert('FAILURE');

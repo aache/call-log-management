@@ -1,4 +1,5 @@
     const express = require('express');
+    const jwt = require('jsonwebtoken');
     const app = express()
     const port = 3000
 
@@ -93,6 +94,7 @@
 
 /*Login-Auth User Details */ 
 const Login = {
+    id : new Array(1,2,3),
     usernames : new Array ("Administrator","Manager","Developer"),
     passwords : new Array ("password1","password2","password3")
 }
@@ -103,9 +105,10 @@ app.get('/mock/mock-login-auth',(req,res) => {
     for(var i = 0; i < Login.usernames.length; i++){
     if((req.query.username)==Login.usernames[i] && (req.query.password)==Login.passwords[i]){
         valid=true;
-        break;  
-    }   
-}
+        
+         break;
+    } 
+};
 res.send(valid);
 }); 
 
