@@ -13,14 +13,16 @@ const express = require('express');
     app.use(bodyParser.json());
     var router = express.Router();
     /*Sql database Connection */
-    const { Client } = require('pg')
-    const conn = new Client({
+    const mysql = require('mysql');
+    const conn = mysql.createConnection({
       host     : 'localhost',
-      user     : 'postgres',
+      user     : 'root',
       password : '123456',
-      database : 'postgres'
+      database : 'db_call-log-mgt'
+    });    
+    conn.connect(function(err){
+        (err)?console.log(err):console.log(/*conn*/)+JSON.stringify(err,undefined,2);
     }); 
-    conn.connect();   
 
  /* Service to Inward post data from screen to database of inventory.html and also update quantity on stock-items.html */
   app.post('/mock/mock-inventory',(req,res)=>{
@@ -85,19 +87,23 @@ const express = require('express');
        
        /*Service to post data from screen to database of Stock-Items */
        app.post('/mock/mock-stock-items',(req,res)=>{
+        console.log(req.body.stock_name); 
+         var stk ={
+           stock_name : req.body.stock_name,
+           quantity : req.body.quantity,
+         }
 
          const query = {
-          text: 'INSERT INTO tb_stock_inventory(stock_name, quantity) VALUES ($1, $2)',
+          text: 'INSERT INTO public.tb_stock_inventory(stock_name, quantity) VALUES ($1, $2)',
           values: [ req.body.stock_name, req.body.quantity],
         }
         
         // callback
-        
-        conn.query(query, (err, res) => {
+        client.query(query, (err, res) => {
           if (err) {
             console.log(err.stack)
           } else {
-            console.log('Success')
+            console.log(res.rows[0])
           }
         }) ;  
 
@@ -106,7 +112,6 @@ const express = require('express');
        /* Service to get data from Database to Screen of Stock_Items */
 
        app.get('/mock/mock-stock-items-view',(req,res)=>{
-         
          conn.query('SELECT * FROM tb_stock_inventory',(err,rows,fields)=>{
           if(!err)
           res.send(rows);

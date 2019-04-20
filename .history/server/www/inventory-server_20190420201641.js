@@ -19,8 +19,7 @@ const express = require('express');
       user     : 'postgres',
       password : '123456',
       database : 'postgres'
-    }); 
-    conn.connect();   
+    });    
 
  /* Service to Inward post data from screen to database of inventory.html and also update quantity on stock-items.html */
   app.post('/mock/mock-inventory',(req,res)=>{
@@ -85,6 +84,7 @@ const express = require('express');
        
        /*Service to post data from screen to database of Stock-Items */
        app.post('/mock/mock-stock-items',(req,res)=>{
+        console.log(req.body.stock_name); 
 
          const query = {
           text: 'INSERT INTO tb_stock_inventory(stock_name, quantity) VALUES ($1, $2)',
@@ -92,7 +92,6 @@ const express = require('express');
         }
         
         // callback
-        
         conn.query(query, (err, res) => {
           if (err) {
             console.log(err.stack)
@@ -106,7 +105,6 @@ const express = require('express');
        /* Service to get data from Database to Screen of Stock_Items */
 
        app.get('/mock/mock-stock-items-view',(req,res)=>{
-         
          conn.query('SELECT * FROM tb_stock_inventory',(err,rows,fields)=>{
           if(!err)
           res.send(rows);

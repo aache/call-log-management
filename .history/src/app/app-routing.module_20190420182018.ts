@@ -12,10 +12,10 @@ const routes: Routes = [
   {path: 'login' , component: LoginComponent},
   {path: 'dashboard' , component: DashboardComponent, canActivate: [AuthGuardService]},
   {path: '' , component: LoginComponent},
-  {path: 'call-log-form' , component: CallLogFormComponent, canActivate: [AuthGuardService]},
-  {path: 'call-log-view' , component: CallLogViewComponent, canActivate: [AuthGuardService]},
-  {path: 'inventory' , component: InventoryComponent, canActivate: [AuthGuardService]},
-  {path: 'stock-items' , component: StockItemsComponent, canActivate: [AuthGuardService]},
+  {path: 'call-log-form' , component: CallLogFormComponent},
+  {path: 'call-log-view' , component: CallLogViewComponent},
+  {path: 'inventory' , component: InventoryComponent },
+  {path: 'stock-items' , component: StockItemsComponent},
   ];
 
 @NgModule({

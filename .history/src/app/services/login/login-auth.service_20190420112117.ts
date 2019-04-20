@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
-import { AppSettings } from 'src/app/app-settings';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Injectable } from "@angular/core";
+import { AppSettings } from "src/app/app-settings";
+import { HttpClient, HttpParams } from "@angular/common/http";
+import { Observable } from "rxjs";
+import { ILogin } from "src/app/models/ILogin";
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class LoginAuthService {
   private logindata;

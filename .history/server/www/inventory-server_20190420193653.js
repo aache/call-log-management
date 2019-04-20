@@ -13,14 +13,18 @@ const express = require('express');
     app.use(bodyParser.json());
     var router = express.Router();
     /*Sql database Connection */
+
     const { Client } = require('pg')
     const conn = new Client({
       host     : 'localhost',
       user     : 'postgres',
       password : '123456',
       database : 'postgres'
+    });    
+    
+    conn.connect(function(err){
+        (err)?console.log(err):console.log(/*conn*/)+JSON.stringify(err,undefined,2);
     }); 
-    conn.connect();   
 
  /* Service to Inward post data from screen to database of inventory.html and also update quantity on stock-items.html */
   app.post('/mock/mock-inventory',(req,res)=>{
@@ -84,29 +88,25 @@ const express = require('express');
        });
        
        /*Service to post data from screen to database of Stock-Items */
+
        app.post('/mock/mock-stock-items',(req,res)=>{
-
-         const query = {
-          text: 'INSERT INTO tb_stock_inventory(stock_name, quantity) VALUES ($1, $2)',
-          values: [ req.body.stock_name, req.body.quantity],
-        }
-        
-        // callback
-        
-        conn.query(query, (err, res) => {
-          if (err) {
-            console.log(err.stack)
-          } else {
-            console.log('Success')
-          }
-        }) ;  
-
+        console.log(req.body.stock_name); 
+         var stk ={
+           stock_name : req.body.stock_name,
+           quantity : req.body.quantity,
+         }
+         conn.query('INSERT INTO tb_stock_inventory SET ?',stk ,function(err,res){
+          if(!err)
+         
+          console.log("Success"); 
+           else
+           console.log(err);
+          });
        });
 
        /* Service to get data from Database to Screen of Stock_Items */
 
        app.get('/mock/mock-stock-items-view',(req,res)=>{
-         
          conn.query('SELECT * FROM tb_stock_inventory',(err,rows,fields)=>{
           if(!err)
           res.send(rows);
@@ -119,7 +119,7 @@ const express = require('express');
        /* Service to delete data from Database and Screen of Stock_Items */
        app.get('/mock/mock-stock-items-del',(req,res)=>{
          console.log(req.query.stock_id);
-         conn.query('DELETE FROM tb_stock_inventory where ? NOT IN (SELECT stock_id FROM tb_transition) ',{id :req.query.stock_id},(err,rows,fields)=>{
+         conn.query('DELETE FROM tb_stock_inventory where ?',{id :req.query.stock_id},(err,rows,fields)=>{
            if(!err)
            console.log("Deleted");
            else

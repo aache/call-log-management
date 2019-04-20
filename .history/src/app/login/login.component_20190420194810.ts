@@ -18,9 +18,11 @@ export class LoginComponent implements OnInit {
     private loginAuthService: LoginAuthService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private authenticationService: AuthenticationService
+    private authenticationService : AuthenticationService
   ) {
+    
   }
+  
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -30,8 +32,10 @@ export class LoginComponent implements OnInit {
   }
 
   get f() { return this.loginForm.controls; }
+  
 
-  validate() {
+  validate()
+   {
      this.submitted = true ;
 
      // stop here if form is invalid
