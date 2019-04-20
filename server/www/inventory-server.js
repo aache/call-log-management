@@ -117,7 +117,7 @@ const express = require('express');
        /* Service to delete data from Database and Screen of Stock_Items */
        app.get('/mock/mock-stock-items-del',(req,res)=>{
          console.log(req.query.stock_id);
-         conn.query('DELETE FROM tb_stock_inventory where ?',{id :req.query.stock_id},(err,rows,fields)=>{
+         conn.query('DELETE FROM tb_stock_inventory where ? NOT IN (SELECT stock_id FROM tb_transition) ',{id :req.query.stock_id},(err,rows,fields)=>{
            if(!err)
            console.log("Deleted");
            else

@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     private loginAuthService: LoginAuthService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private authenticationservice : AuthenticationService
+    private authenticationService : AuthenticationService
   ) {
     
   }
@@ -44,14 +44,14 @@ export class LoginComponent implements OnInit {
       if (this.loginForm.invalid) {
         return;
      }
-      // this.loginAuthService.printLogin(this.f.username.value, this.f.password.value);
+      
       this.loginAuthService.loginAuth(this.f.username.value, this.f.password.value).subscribe(data => {
         console.log(data);
-        var time = new Date().getTime() / 1000 + 330*60;
-        this.authenticationservice.set("user", { "username": this.f.username.value,"password":this.f.password.value, "Login_Time": time});
-    console.log(this.authenticationservice.get("user"));
+        var time = new Date().getTime() / 1000 + 330*60; 
+        /** if data is true login is successfull so set in local storage */
         if (data) {
-          
+          this.authenticationService.set("user", 
+          { "username": this.f.username.value,"password":this.f.password.value, "Login_Time": time});
           this.router.navigate(['/dashboard']);
         } else {
            alert('FAILURE');
