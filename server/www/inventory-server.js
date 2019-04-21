@@ -106,15 +106,22 @@ const express = require('express');
        /* Service to get data from Database to Screen of Stock_Items */
 
        app.get('/mock/mock-stock-items-view',(req,res)=>{
-         
-         conn.query('SELECT * FROM tb_stock_inventory',(err,rows,fields)=>{
-          if(!err)
-          res.send(rows);
-          //console.log("Success");
-          else
+        
+        const query = {
+          name: 'get-stock-inventory',
+          text: 'SELECT * FROM tb_stock_inventory',
+          rowMode: 'array'
+        }
+
+         conn.query(query,(err,result)=>{
+          if(!err){
+          res.send(result.rows);
+          }
+          else {
           console.log(err);
+          }
          })
-       })
+       });
 
        /* Service to delete data from Database and Screen of Stock_Items */
        app.get('/mock/mock-stock-items-del',(req,res)=>{

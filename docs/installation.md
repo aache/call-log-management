@@ -18,7 +18,7 @@
   `uname` varchar(20) NOT NULL,
   `phonenumber` varchar(20) NOT NULL,
   `timeofcall` varchar(30) DEFAULT NULL,
-  `location` varchar(100) DEFAULT NULL,xz
+  `location` varchar(100) DEFAULT NULL,
   `reportedby` varchar(50) DEFAULT NULL,
   `callpriority` int(11) DEFAULT NULL,
   `callseverity` int(11) DEFAULT NULL,
@@ -55,7 +55,17 @@ Create Table : Query for Stock table is
   PRIMARY KEY (`id`));
   */
 
- 
+### If error on Node While Connecting then at mysql workbench type command
+/* ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';
+FLUSH PRIVILEGES; */
+
+-------Alter table tb_calllogfrm---
+ALTER TABLE `db_call-log-mgt`.`tb_calllogfrm` 
+ADD COLUMN `vlan` VARCHAR(45) NULL AFTER `call_log_id`,
+ADD COLUMN `zone` VARCHAR(45) NULL AFTER `vlan`,
+ADD COLUMN `user_id` VARCHAR(30) NULL AFTER `zone`;
+
+
 
 alter table tb_transition modify column id int auto_increment ; 
 alter table tb_stock_inventory modify column id int auto_increment ; 
@@ -68,3 +78,5 @@ alter table tb_transition modify column date timestamp ;
 
 --------------Execute SQL below this line (25:03:2019)-----
 alter table `db_call-log-mgt`.tb_calllogfrm modify column timeofcall timestamp ;
+
+
