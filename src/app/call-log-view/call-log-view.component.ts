@@ -30,6 +30,7 @@ dtTrigger : Subject<any> = new Subject();
 
   ngOnInit() {
     this.dtOptions = {
+ 
       pagingType: 'full_numbers',
       pageLength: 10
     };
@@ -39,6 +40,7 @@ dtTrigger : Subject<any> = new Subject();
       this.load = result;
      
       this.dtTrigger.next();
+      console.log(this.load);
       
     });
   }

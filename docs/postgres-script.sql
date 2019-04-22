@@ -82,3 +82,22 @@ WITH (
     OIDS = FALSE
 )
 TABLESPACE pg_default;
+
+
+------------Edited By Naufil tb_calllogfrm----------
+
+CREATE TABLE public.tb_calllogfrm
+(
+    uname character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    phonenumber character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    timeofcall timestamp without time zone,
+    location character varying(100) COLLATE pg_catalog."default" DEFAULT NULL::character varying,
+    reportedby character varying(50) COLLATE pg_catalog."default" DEFAULT NULL::character varying,
+    callpriority integer,
+    callseverity integer,
+    call_log_id integer NOT NULL DEFAULT nextval('tb_calllogfrm_call_log_id_seq'::regclass) ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
+    vlan character varying(45) COLLATE pg_catalog."default",
+    zone character varying(45) COLLATE pg_catalog."default",
+    user_id character varying(30) COLLATE pg_catalog."default",
+    CONSTRAINT tb_calllogfrm_pkey PRIMARY KEY (call_log_id)
+)

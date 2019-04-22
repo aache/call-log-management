@@ -48,9 +48,11 @@
             callseverity: req.body.call_severity
         }    
        // console.log(req.body.name);
-        conn.query('INSERT INTO tb_calllogfrm SET ?', calllog, function (err, res) {
-        
-        
+       const query = {
+        text: 'INSERT INTO tb_calllogfrm(uname,phonenumber,timeofcall,vlan,zone,user_id,location,reportedby,callpriority,callseverity) VALUES ($1, $2,$3,$4,$5,$6,$7,$8,$9,$10) RETURNING *',
+        values: [ req.body.name, req.body.phone_number,new Date(),req.body.vlan,req.body.zone,req.body.user_id,req.body.location,req.body.reported_by,req.body.call_priority, req.body.call_severity],
+      }
+      conn.query(query, (err, res) => {
            if(!err)
         
           console.log("Success"); 
@@ -61,12 +63,17 @@
 /*Service to get data from database to table(call-log-view) */
 
     app.get('/mock/mock-calllogview',(req,res)=>{
-        conn.query('SELECT * FROM tb_calllogfrm',(err,rows,fields)=>{
-            if(!err)
-            res.send(rows);
-            //console.log("Success");
-           else
-           console.log(err);
+        const query = {
+            name: 'get-tb_calllogfrm',
+            text: 'SELECT * FROM tb_calllogfrm',
+            rowMode: 'array'
+          }
+          conn.query(query, (err, result) => {
+            if (err) {
+              console.error(err)
+            } else {
+                res.send(result.rows); 
+            }
           });
 
   });
