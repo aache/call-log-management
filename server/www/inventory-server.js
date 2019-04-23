@@ -57,18 +57,15 @@ const express = require('express');
   app.post('/mock/mock-inventory-out',(req,res)=>{
     console.log(req.body.stock_name); 
   
-       var inv = {
-         stock_id  : req.body.stock_id,
-         username : req.body.username,
-         quantity : req.body.quantity,
-         transition_type : req.body.transition_type,
-         date : new Date(),
-         discription : req.body.discription
-       }
-       conn.query('INSERT INTO tb_transition SET ?', inv ,function(err,res){
+       const query = {
+        text: 'INSERT INTO tb_transition(stock_id,username,quantity,transition_type,date,discription) VALUES ($1, $2,$3,$4,$5,$6) RETURNING *',
+        values: [ req.body.stock_id, req.body.username,req.body.quantity,req.body.transition_type,new Date(),req.body.discription],
+      }
+
+      conn.query(query,function(err,res){
         var upquery= "UPDATE tb_stock_inventory SET";
-        upquery += "`quantity` = quantity - '" +req.body.quantity+"'";
-        upquery += "WHERE `id`=" +req.body.stock_id+ "";
+        upquery += "quantity = quantity - " [req.body.quantity];
+        upquery += "WHERE id =" [req.body.stock_id];
         console.log(req.body.quantity);
            conn.query(upquery,function(err,res){
             if(!err)
@@ -126,7 +123,7 @@ const express = require('express');
        /* Service to delete data from Database and Screen of Stock_Items */
        app.get('/mock/mock-stock-items-del',(req,res)=>{
          console.log(req.query.stock_id);
-         conn.query('DELETE FROM tb_stock_inventory where ? NOT IN (SELECT stock_id FROM tb_transition) ',{id :req.query.stock_id},(err,rows,fields)=>{
+         conn.query('DELETE FROM tb_stock_inventory where ? NOT IN (SELECT stock_id FROM tb_transition) ',[id = req.query.stock_id],(err,rows,fields)=>{
            if(!err)
            console.log("Deleted");
            else
