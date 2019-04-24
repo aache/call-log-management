@@ -24,11 +24,14 @@ stock_id : number ;
     for (let propName in changes) {
       let changedProp = changes[propName];
       let to = JSON.stringify(changedProp.currentValue);
-      console.log(changedProp);
-      console.log(changedProp.currentValue);
+     // console.log(changedProp);
+      //console.log(changedProp.currentValue);
       
     }
-    this.stockservice.gettransaction(this.stock_id).subscribe(data=>{this.transaction=data;});
+    this.stockservice.gettransaction(this.stock_id).subscribe(data=>{this.transaction=data;
+      console.log(data)
+    });
+    
   }
 
 

@@ -30,6 +30,7 @@ onDeleteclick(id){
     this.stockservice.getstockitems().subscribe(result =>{
       this.stockload = result;
       this.dtTrigger.next();
+     
     });
   }
 

@@ -133,13 +133,20 @@ const express = require('express');
 
        /*Service to select items from transition table on click of item name in stock-items.html */
        app.get('/mock/mock-stock-items-popup-view',(req,res)=>{
-         conn.query('SELECT * FROM tb_transition where ?',{stock_id :req.query.stock_id},(err,rows,fields)=>{
-           if(!err)
-           res.send(rows);
-           else
-           console.log(err);
-          })
-
+        const query2 = {
+          name: 'get-tb_transition2',
+          text: "SELECT * FROM tb_transition where stock_id ("+req.body.stock_id+")",
+          
+          rowMode: 'array'
+        }
+        conn.query(query2, (err, result2) => {
+          if (err) {
+            console.error(err)
+          } else {
+              res.send(result2.rows); 
+          }
+        });
+         
        });
        app.listen(port, () => console.log(`Example app Inventory listening on port ${port}!`))
     
