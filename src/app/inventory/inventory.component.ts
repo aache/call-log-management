@@ -8,10 +8,10 @@ import { StockItemsService } from '../services/Stock-Items/stock-items.service';
   styleUrls: ['./inventory.component.css']
 })
 export class InventoryComponent implements OnInit {
-  outwardmodel = new Transition(null,1,'','' ,null,'',null,'');
-  inwardmodel = new Transition(null,1,'',null ,null,'',null,'');
- 
-  constructor(private service : InventoryService) { }
+  outwardmodel = new Transition(null,null,'','' ,null,'',null,'');
+  inwardmodel = new Transition(null,null,'',null ,null,'',null,'');
+  stockload : any =[];
+  constructor(private service : InventoryService,private stockservice : StockItemsService) { }
   onInwardClick(){
   this.service.inwardcall(this.inwardmodel)
   .subscribe(
@@ -31,7 +31,12 @@ export class InventoryComponent implements OnInit {
   }
    ngOnInit() {
      //to get data from database
-   this.service.getstockview().subscribe()
+   this.service.getstockview().subscribe();
+   this.stockservice.getstockitems().subscribe(result =>{
+    this.stockload = result;
+    console.log(result);
+   });
+   
   }
-
+  
 }

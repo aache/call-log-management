@@ -16,12 +16,14 @@
             <!-- /.panel-heading -->
             <div class="panel-body">
                 <form role="form" #Inward="ngForm" (ngSubmit)="onInwardClick()" novalidate>
-                       <!-- {{Inward.value | json}}-->
-                    <div class="form-group">
-                        <label>Stock Items</label>
-                        <input class="form-control" name="stock_name" required [(ngModel)]="inwardmodel.stock_name">  
-                    </div>
-                    <div class="form-group">
+                       {{Inward.value | json}}
+                       <div class="form-group"  >
+                        <label>Stock Items :</label>
+                        <select class="form-control" id="stock_name" name="stock_name" required [(ngModel)]="inwardmodel.stock_name">
+                            <option *ngFor="let result of stockload" value={{result[0]}}>{{result[1]}}</option>
+                         </select>
+                     </div>
+                   <div class="form-group">
                         <label>Quantity :</label>
                         <input class="form-control" name="quantity" required [(ngModel)]="inwardmodel.quantity">      
                     </div>
@@ -58,13 +60,12 @@
                         </div>
                     <form role="form" #Outward="ngForm" (ngSubmit)="onOutwardClick()" novalidate>
                            {{Outward.value | json}}
-                            <div class="form-group">
-                                    <label class="">Stock Items :</label>
-                                    <div class="form-group col-md-11">
-                                            <input class="form-control" type="hidden" name="stock_id" required [(ngModel)]="outwardmodel.stock_id">
-                                        <input class="form-control" name="stock_name" required [(ngModel)]="outwardmodel.stock_name">
-                                    </div>                                                                  
-                                </div>
+                           <div class="form-group"  >
+                            <label>Stock Items :</label>
+                            <select class="form-control" id="stock_name" name="stock_name" required [(ngModel)]="inwardmodel.stock_name">
+                                <option *ngFor="let result of stockload" value={{result[0]}}>{{result[1]}}</option>
+                             </select>
+                         </div>
                         <div class="form-group">
                             <label>UserName :</label>
                             <input class="form-control" name="username" required [(ngModel)]="outwardmodel.username">
