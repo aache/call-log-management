@@ -22,7 +22,6 @@
                                                       <th>ID</th>
                                                       <th>Date</th>
                                                       <th>Quantity</th>
-                                                      <th>Transaction Type</th>
                                                       <th>Description</th>
                                                   </tr>
                                               </thead>
@@ -30,11 +29,10 @@
                                                   
                                                   <tr class="warning" *ngFor='let res of transaction'>
                                                     
-                                                      <td>{{res.transition_id}}</td>
-                                                      <td>{{res.date}}</td>
-                                                      <td>{{res.quantity}}</td>
-                                                      <td>{{res.transition_type}}</td>
-                                                      <td>{{res.discription}}</td>
+                                                      <td>{{transaction[0]}}</td>
+                                                      <td>{{res[5]}}</td>
+                                                      <td>{{res[2]}}</td>
+                                                      <td>{{res[6]}}</td>
                                                   </tr>
                                                  
                                               </tbody>

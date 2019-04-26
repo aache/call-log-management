@@ -8,14 +8,14 @@ import { Stockitems } from 'src/app/models/Stockitems';
   styleUrls: ['./stock-items-popup.component.css']
 })
 export class StockItemsPopupComponent implements OnInit {
-  stockmodel = new Stockitems(null, '', null);
-  constructor(private ser: StockItemsService) { }
-  onStockClick() {
+  stockmodel = new Stockitems(null,'',null);
+  constructor(private ser : StockItemsService) { }
+  onStockClick(){
     this.ser.stockpost(this.stockmodel)
     .subscribe(
-      data => console.log('success!', data),
-      error => console.log('Error!!', error)
-    );
+      data => console.log('success!',data),
+      error => console.log('Error!!',error)
+    )
       window.location.reload();
   }
   ngOnInit() {

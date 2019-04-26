@@ -12,24 +12,22 @@ export class InventoryComponent implements OnInit {
   inwardmodel = new Transition(null, null, '', null , null, '', null, '');
   stockload: any = [];
   constructor(private service: InventoryService, private stockservice: StockItemsService) { }
-  onInwardClick() {
-//    this.inwardmodel.stock_id = this.stockload;
+  onInwardClick(){
+    this.inwardmodel.stock_id = this.stockload;
   this.service.inwardcall(this.inwardmodel)
   .subscribe(
     data => console.log('success!', data),
     error => console.log('Error!!', error)
   );
-  location.reload();
 }
 
-  onOutwardClick() {
-  //  this.outwardmodel.stock_id = this.stockload;
+  onOutwardClick(){
+    this.outwardmodel.stock_id = this.stockload;
     this.service.outwardcall(this.outwardmodel)
     .subscribe(
-      data => location.reload(),
+      data => console.log('success!', data),
       error => console.log('Error!!', error)
     );
-    location.reload();
   }
    ngOnInit() {
    // to get data from database

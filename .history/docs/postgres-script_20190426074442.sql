@@ -27,13 +27,13 @@ CREATE TABLE tb_transition (
   transition_type VARCHAR(20) NULL,
   date timestamp NULL,
   discription VARCHAR(45) NULL,
-  PRIMARY KEY (transition_id));
+  PRIMARY KEY (id));
 
 CREATE TABLE tb_stock_inventory (
   stock_id SERIAL,
   stock_name VARCHAR(45) NULL,
   quantity INT NULL,
-  PRIMARY KEY (stock_id));
+  PRIMARY KEY (id));
   
 
 CREATE TABLE public.tb_calllogfrm

@@ -7,7 +7,7 @@ import { StockItemsService } from '../services/Stock-Items/stock-items.service';
   styleUrls: ['./stock-items-popup-view.component.css']
 })
 export class StockItemsPopupViewComponent implements OnInit {
-transaction: any;
+transaction : any=[];
 
 @Input()
 stock_id : number ;
@@ -22,6 +22,7 @@ stock_id : number ;
     console.log('Stock ID :::' + this.stock_id);
     this.stockservice.gettransaction(this.stock_id).subscribe(data => {
       this.transaction = data;
+      console.log(data);
     });
   }
 }

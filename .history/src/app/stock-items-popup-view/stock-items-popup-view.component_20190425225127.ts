@@ -22,6 +22,7 @@ stock_id : number ;
     console.log('Stock ID :::' + this.stock_id);
     this.stockservice.gettransaction(this.stock_id).subscribe(data => {
       this.transaction = data;
+      console.log(this.transaction);
     });
   }
 }

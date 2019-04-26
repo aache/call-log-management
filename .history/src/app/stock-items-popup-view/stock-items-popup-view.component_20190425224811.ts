@@ -7,7 +7,7 @@ import { StockItemsService } from '../services/Stock-Items/stock-items.service';
   styleUrls: ['./stock-items-popup-view.component.css']
 })
 export class StockItemsPopupViewComponent implements OnInit {
-transaction: any;
+transaction : any=[];
 
 @Input()
 stock_id : number ;

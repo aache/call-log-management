@@ -26,7 +26,7 @@
   app.post('/mock/mock-inventory',(req,res)=>{
     const query = {
       text: 'INSERT INTO tb_transition(stock_id,username,quantity,transition_type,date,discription) VALUES ($1, $2,$3,$4,$5,$6)',
-      values: [ req.body.stock_id, null,req.body.quantity,'INTWARD',new Date(),req.body.discription],
+      values: [ req.body.stock_id, req.body.username,req.body.quantity,'INTWARD',new Date(),req.body.discription],
       }
 
     conn.query(query,function(err,res){

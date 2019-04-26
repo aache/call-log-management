@@ -22,7 +22,7 @@ onDeleteclick(id) {
 }
 
   ngOnInit() {
-    this.stockservice.getstockitems().subscribe(result => {
+    this.stockservice.getstockitems().subscribe(result =>{
       this.stockload = result;
     });
   }

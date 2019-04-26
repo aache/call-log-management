@@ -8,26 +8,33 @@ import { StockItemsService } from 'src/app/services/Stock-Items/stock-items.serv
   styleUrls: ['./stock-items.component.css']
 })
 export class StockItemsComponent implements OnInit {
-stockload: any = [];
+stockload : any =[];
 dtOptions: DataTables.Settings = {};
-dtTrigger: Subject<any> = new Subject();
+dtTrigger : Subject<any> = new Subject();
 
-selected_stock_id: number;
+selected_stock_id : number ; 
 
-  constructor(private stockservice: StockItemsService) { }
-onDeleteclick(id) {
+  constructor(private stockservice : StockItemsService) { }
+onDeleteclick(id){
   console .log (id);
-  this.stockservice.deletestockitems(id).subscribe(data => this.stockload.id = data.id);
+  this.stockservice.deletestockitems(id).subscribe(data=>this.stockload.id=data.id);
   window.location.reload();
 }
 
   ngOnInit() {
-    this.stockservice.getstockitems().subscribe(result => {
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 10
+    };
+    
+    this.stockservice.getstockitems().subscribe(result =>{
       this.stockload = result;
+      this.dtTrigger.next();
+     
     });
   }
 
-  onShowModal(id: number) {
+  onShowModal(id : number){
     this.selected_stock_id = id ;
   }
 

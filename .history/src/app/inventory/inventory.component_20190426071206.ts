@@ -19,17 +19,15 @@ export class InventoryComponent implements OnInit {
     data => console.log('success!', data),
     error => console.log('Error!!', error)
   );
-  location.reload();
 }
 
   onOutwardClick() {
   //  this.outwardmodel.stock_id = this.stockload;
     this.service.outwardcall(this.outwardmodel)
     .subscribe(
-      data => location.reload(),
+      data => console.log('success!', data),
       error => console.log('Error!!', error)
     );
-    location.reload();
   }
    ngOnInit() {
    // to get data from database

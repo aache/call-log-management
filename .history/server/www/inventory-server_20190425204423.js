@@ -1,4 +1,4 @@
-  const express = require('express');
+const express = require('express');
     const app = express()
     const port = 3001
 
@@ -24,43 +24,48 @@
 
  /* Service to Inward post data from screen to database of inventory.html and also update quantity on stock-items.html */
   app.post('/mock/mock-inventory',(req,res)=>{
-    const query = {
-      text: 'INSERT INTO tb_transition(stock_id,username,quantity,transition_type,date,discription) VALUES ($1, $2,$3,$4,$5,$6)',
-      values: [ req.body.stock_id, null,req.body.quantity,'INTWARD',new Date(),req.body.discription],
-      }
-
-    conn.query(query,function(err,res){
-      const upquery = {
-        text:"UPDATE tb_stock_inventory SET quantity = quantity + $1 WHERE stock_id = $2",
-        values:[req.body.quantity,req.body.stock_id]
-      } 
-      console.log(req.body.quantity);
-         conn.query(upquery,function(err,res){
+    console.log(req.body.stock_name); 
+  
+       var inv = {
+         stock_id  : req.body.stock_id,
+         username : req.body.username,
+         quantity : req.body.quantity,
+         transition_type : req.body.transition_type,
+         date : new Date(),
+         discription : req.body.discription
+       }
+       conn.query('INSERT INTO tb_transition SET ?', inv ,function(err,res){
+        var upquery= "UPDATE tb_stock_inventory SET";
+        upquery += "`quantity` = quantity + '" +req.body.quantity+"'";
+        upquery += "WHERE `id`=" +req.body.stock_id+ "";
+        console.log(req.body.quantity);
+           conn.query(upquery,function(err,res){
+            if(!err)
+             console.log("Successfully updated on stock Items!!"); 
+             else
+             console.log(err);
+            })
           if(!err)
-           console.log("Successfully updated on stock Items!!"); 
-           else
-           console.log(err);
-          })
-        if(!err)
-         console.log("Success"); 
-        else
-        console.log(err);
+           console.log("Success"); 
+          else
+          console.log(err);
+         });
        });
-  });
 
 
         /* Service to Outward post data from screen to database of inventory.html and also update quantity on stock-items.html */
   app.post('/mock/mock-inventory-out',(req,res)=>{
+    console.log(req.body.stock_name); 
+  
        const query = {
-        text: 'INSERT INTO tb_transition(stock_id,username,quantity,transition_type,date,discription) VALUES ($1, $2,$3,$4,$5,$6)',
-        values: [ req.body.stock_id, req.body.username,req.body.quantity,'OUTWARD',new Date(),req.body.discription],
-        }
+        text: 'INSERT INTO tb_transition(stock_id,username,quantity,transition_type,date,discription) VALUES ($1, $2,$3,$4,$5,$6) RETURNING *',
+        values: [ req.body.stock_id, req.body.username,req.body.quantity,req.body.transition_type,new Date(),req.body.discription],
+      }
 
       conn.query(query,function(err,res){
-        const upquery = {
-          text:"UPDATE tb_stock_inventory SET quantity = quantity - $1 WHERE stock_id = $2",
-          values:[req.body.quantity,req.body.stock_id]
-        } 
+        var upquery= "UPDATE tb_stock_inventory SET";
+        upquery += "quantity = quantity - " [req.body.quantity];
+        upquery += "WHERE id =" [req.body.stock_id];
         console.log(req.body.quantity);
            conn.query(upquery,function(err,res){
             if(!err)
@@ -99,13 +104,13 @@
 
        app.get('/mock/mock-stock-items-view',(req,res)=>{
         
-        const query_1 = {
+        const query = {
           //name: 'get-stock-inventory',
-          text: 'SELECT * FROM tb_stock_inventory',
+          text: 'SELECT id , stock_name , quantity FROM tb_stock_inventory',
           rowMode: 'array'
         }
 
-         conn.query(query_1,(err,result)=>{
+         conn.query(query,(err,result)=>{
           if(!err){
           res.send(result.rows);
           }
@@ -120,7 +125,7 @@
          console.log("deleting stock ::: "+req.query.stock_id);
          
         const query = {
-          text: "DELETE FROM tb_stock_inventory where stock_id = $1 and '"+req.query.stock_id+"' not in (select stock_id from tb_transition)",
+          text: 'DELETE FROM tb_stock_inventory where id = $1 and \'1\' = (select \'1\' from tb_transition where stock_id = $1)',
           values: [ req.query.stock_id],
         }
         conn.query(query, (err, res) => {
@@ -135,9 +140,10 @@
        /*Service to select items from transition table on click of item name in stock-items.html */
        app.get('/mock/mock-stock-items-popup-view',(req,res)=>{
         const query2 = {
-          //name: 'get-tb_transition2',
-          text: "SELECT * FROM tb_transition where stock_id ="+req.query.stock_id,          
-          rowMode: 'string'
+          name: 'get-tb_transition2',
+          text: "SELECT * FROM tb_transition where stock_id ("+req.body.stock_id+")",
+          
+          rowMode: 'array'
         }
         conn.query(query2, (err, result2) => {
           if (err) {

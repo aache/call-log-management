@@ -19,7 +19,6 @@ export class InventoryComponent implements OnInit {
     data => console.log('success!', data),
     error => console.log('Error!!', error)
   );
-  location.reload();
 }
 
   onOutwardClick() {
@@ -29,7 +28,6 @@ export class InventoryComponent implements OnInit {
       data => location.reload(),
       error => console.log('Error!!', error)
     );
-    location.reload();
   }
    ngOnInit() {
    // to get data from database
