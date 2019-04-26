@@ -31,7 +31,7 @@
                                                   <tr class="warning" *ngFor='let res of transaction'>
                                                     
                                                       <td>{{res.transition_id}}</td>
-                                                      <td>{{res.date}}</td>
+                                                      <td>{{res.date | date :'d/M/y hh:mm:ss a'}}</td>
                                                       <td>{{res.quantity}}</td>
                                                       <td>{{res.transition_type}}</td>
                                                       <td>{{res.discription}}</td>
