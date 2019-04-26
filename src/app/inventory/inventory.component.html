@@ -60,11 +60,13 @@
                         </div>
                     <form role="form" #Outward="ngForm" (ngSubmit)="onOutwardClick()" novalidate>
                           <!-- {{Outward.value | json}} -->
-                           <div class="form-group"  >
+                           <div class="form-group ">
                             <label>Stock Items :</label>
-                            <select class="form-control" id="stock_name" name="stock_name" required [(ngModel)]="outwardmodel.stock_id">
+                            <div  class="col-md-11">
+                            <select class="form-control " id="stock_name" name="stock_name" required [(ngModel)]="outwardmodel.stock_id">
                                 <option *ngFor="let result of stockload" value={{result[0]}}>{{result[1]}}</option>
                              </select>
+                            </div>
                          </div>
                         <!--div class="form-group">
                             <label>UserName :</label>
@@ -78,8 +80,10 @@
                         </div>-->
                         <div class="form-group">
                             <label>Quantity :</label>
-                            <input class="form-control" name="quantity" required [(ngModel)]="outwardmodel.quantity">
-                            
+                            <input class="form-control" name="quantity" [class.alert-danger]="quantity.invalid && quantity.touched" required [(ngModel)]="outwardmodel.quantity">
+                            <div *ngFor="let result of stockload" >
+                                {{result[2]}}
+                            </div>
                         </div>                    
                         <div class="form-group">
                             <label>Description :</label>
