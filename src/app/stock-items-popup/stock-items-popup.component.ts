@@ -11,6 +11,7 @@ export class StockItemsPopupComponent implements OnInit {
   stockmodel = new Stockitems(null, '', null);
   constructor(private ser: StockItemsService) { }
   onStockClick() {
+    console.log("Stock Model %o" , this.stockmodel);
     this.ser.stockpost(this.stockmodel)
     .subscribe(
       data => console.log('success!', data),

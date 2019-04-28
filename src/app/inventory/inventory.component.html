@@ -15,9 +15,10 @@
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
+                <div *ngIf = "inwardSuccessDt != null">Inward transaction successful at {{inwardSuccessDt | date :'d/M/y hh:mm:ss a'}}</div>
                 <form role="form" #Inward="ngForm" (ngSubmit)="onInwardClick()" novalidate>
                     <!--   {{Inward.value | json}} -->
-                       <div class="form-group"  >
+                       <div class="form-group col-md-12">
                         <label>Stock Items :</label>
                         <select class="form-control" id="stock_name" name="stock_name" required [(ngModel)]="inwardmodel.stock_id">
                             <option *ngFor="let result of stockload" value={{result[0]}}>{{result[1]}}</option>
@@ -51,6 +52,7 @@
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
+                        <div *ngIf = "outwardSuccessDt != null">Outward transaction successful at {{outwardSuccessDt | date :'d/M/y hh:mm:ss a'}}</div>
                         <div class="s">   
                                 <!-- Modal -->
                                 <div class="col-md-1"><button class="btn primary btn-primary btn-default" data-toggle="modal" data-target="#myModal">+</button>
@@ -58,7 +60,7 @@
                                 <app-stock-items-popup></app-stock-items-popup>
                                 <!-- /.modal -->
                         </div>
-                    <form role="form" #Outward="ngForm" (ngSubmit)="onOutwardClick()" novalidate>
+                    <form role="form" #Outward="ngForm" (ngSubmit)="onOutwardClick(outwardmodel.stock_id)" novalidate>
                           <!-- {{Outward.value | json}} -->
                            <div class="form-group ">
                             <label>Stock Items :</label>
@@ -79,12 +81,13 @@
                             
                         </div>-->
                         <div class="form-group">
-                            <label>Quantity :</label>
-                            <input class="form-control" name="quantity" [class.alert-danger]="quantity.invalid && quantity.touched" required [(ngModel)]="outwardmodel.quantity">
-                            <div *ngFor="let result of stockload" >
-                                {{result[2]}}
-                            </div>
-                        </div>                    
+                            <label>Quantity :
+                                 <span *ngIf="errPlsSelectItem == true" class="input-error">Please select Item first</span>
+                                 <span *ngIf="errInvalidQty == true" class="input-error">Invalid Quantity</span>    
+                            </label>
+                            <input class="form-control" name="quantity" required [(ngModel)]="outwardmodel.quantity" id="outQuantity">
+                        </div>
+                                            
                         <div class="form-group">
                             <label>Description :</label>
                             <textarea class="form-control" rows="3" name="discription" required [(ngModel)]="outwardmodel.discription"></textarea>

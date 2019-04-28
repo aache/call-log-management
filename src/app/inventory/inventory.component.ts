@@ -11,25 +11,50 @@ export class InventoryComponent implements OnInit {
   outwardmodel = new Transition(null, null, '', '' , null, '', null, '');
   inwardmodel = new Transition(null, null, '', null , null, '', null, '');
   stockload: any = [];
+  errPlsSelectItem : boolean = false ; 
+  errInvalidQty : boolean = false ; 
+  inwardSuccessDt :Date = null;
+  outwardSuccessDt :Date = null;
   constructor(private service: InventoryService, private stockservice: StockItemsService) { }
   onInwardClick() {
 //    this.inwardmodel.stock_id = this.stockload;
   this.service.inwardcall(this.inwardmodel)
   .subscribe(
-    data => console.log('success!', data),
-    error => console.log('Error!!', error)
-  );
-  location.reload();
+    data => {console.log('inward success');},
+    error => console.log('inward Error!!', error)
+  ); 
+  this.inwardmodel = new Transition(null, null, '', null , null, '', null, '');
+  this.inwardSuccessDt = new Date();
 }
 
-  onOutwardClick() {
-  //  this.outwardmodel.stock_id = this.stockload;
-    this.service.outwardcall(this.outwardmodel)
-    .subscribe(
-      data => location.reload(),
-      error => console.log('Error!!', error)
-    );
-    location.reload();
+  onOutwardClick(stock_id : number) {
+    if(stock_id == null){
+      this.errPlsSelectItem = true ;
+      (<HTMLInputElement>document.getElementById('outQuantity')).value = ''; 
+    }
+    else{
+        this.errPlsSelectItem = false ;
+        console.log("Check existing quantity for stock id " + stock_id);
+        this.stockservice.getStockQty(stock_id).subscribe(result =>{
+        let currentQty = (<HTMLInputElement>document.getElementById('outQuantity')).value ; 
+        console.log("Current Qty :: " + currentQty);
+        console.log("Database Result :: " + result);
+            if(parseInt(currentQty) > parseInt(result)){
+              this.errInvalidQty = true ; 
+              (<HTMLInputElement>document.getElementById('outQuantity')).value = '';
+            }else {
+              console.log("Quantity is valid");
+              this.errInvalidQty = false ;
+              this.service.outwardcall(this.outwardmodel)
+              .subscribe(
+                data => {console.log('outwawrd success');this.outwardSuccessDt = new Date();},
+                error => console.log('inward Error!!', error)
+              );
+              this.outwardmodel = new Transition(null, null, '', '' , null, '', null, '');
+              this.outwardSuccessDt = new Date();
+            }
+       });
+    }
   }
    ngOnInit() {
    // to get data from database
