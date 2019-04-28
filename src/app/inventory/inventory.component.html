@@ -15,7 +15,7 @@
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
-                <div *ngIf = "inwardSuccessDt != null">Inward transaction successful at {{inwardSuccessDt | date :'d/M/y hh:mm:ss a'}}</div>
+                <div class="alert-success" *ngIf = "inwardSuccessDt != null">Inward transaction successful at {{inwardSuccessDt | date :'d/M/y hh:mm:ss a'}}</div>
                 <form role="form" #Inward="ngForm" (ngSubmit)="onInwardClick()" novalidate>
                     <!--   {{Inward.value | json}} -->
                        <div class="form-group col-md-12">
@@ -52,7 +52,7 @@
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
-                        <div *ngIf = "outwardSuccessDt != null">Outward transaction successful at {{outwardSuccessDt | date :'d/M/y hh:mm:ss a'}}</div>
+                        <div class="alert-success" *ngIf = "outwardSuccessDt != null">Outward transaction successful at {{outwardSuccessDt | date :'d/M/y hh:mm:ss a'}}</div>
                         <div class="s">   
                                 <!-- Modal -->
                                 <div class="col-md-1"><button class="btn primary btn-primary btn-default" data-toggle="modal" data-target="#myModal">+</button>
