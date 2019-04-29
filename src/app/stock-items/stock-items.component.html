@@ -33,8 +33,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="success" *ngFor='let result of stockload'>
-                                <td>{{result[0]}}</td>
+                            <tr class="success" *ngFor='let result of stockload;let num=index'>
+                                <td>{{num+1}}</td>
                                 <td><button type="button"  (click)="onShowModal(result[0])" class="btn btn-link" data-toggle="modal" data-target="#myModal2">
                                     {{result[1]}}</button>
                                     <app-stock-items-popup-view [stock_id] ="selected_stock_id"  ></app-stock-items-popup-view>
