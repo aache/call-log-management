@@ -110,7 +110,7 @@
         
         const query_1 = {
           //name: 'get-stock-inventory',
-          text: 'SELECT * FROM tb_stock_inventory',
+          text: 'SELECT stock_id,stock_name,quantity FROM tb_stock_inventory order by stock_id',
           rowMode: 'array'
         }
 

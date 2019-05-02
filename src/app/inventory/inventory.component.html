@@ -15,7 +15,7 @@
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
-                <div class="alert-success" *ngIf = "inwardSuccessDt != null">Inward transaction successful at {{inwardSuccessDt | date :'d/M/y hh:mm:ss a'}}</div>
+                <div class="alert alert-success" *ngIf = "inwardSuccessDt != null">Inward transaction successful at {{inwardSuccessDt | date :'d/M/y hh:mm:ss a'}}</div>
                 <form role="form" #Inward="ngForm" (ngSubmit)="onInwardClick()" novalidate>
                     <!--   {{Inward.value | json}} -->
                        <div class="form-group col-md-12">
