@@ -35,12 +35,12 @@
                         <tbody>
                             <tr class="success" *ngFor='let result of stockload;let num=index'>
                                 <td>{{num+1}}</td>
-                                <td><button type="button"  (click)="onShowModal(result[0])" class="btn btn-link" data-toggle="modal" data-target="#myModal2">
-                                    {{result[1]}}</button>
+                                <td><button type="button"  (click)="onShowModal(result.stock_id)" class="btn btn-link" data-toggle="modal" data-target="#myModal2">
+                                    {{result.stock_name}}</button>
                                     <app-stock-items-popup-view [stock_id] ="selected_stock_id"  ></app-stock-items-popup-view>
                                 </td>
-                                <td>{{result[2]}}</td>
-                                <td><button (click)=onDeleteclick(result[0]) class="btn btn-primary">Delete</button></td>
+                                <td>{{result.quantity}}</td>
+                                <td><button (click)=onDeleteclick(result.stock_id) class="btn btn-primary">Delete</button></td>
                             </tr>
                        </tbody>
                     </table>
