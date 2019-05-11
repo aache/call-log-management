@@ -13,33 +13,43 @@ export interface IPriority {
   providers :[CallLogFrmService]
 })
 export class CallLogFormComponent implements OnInit {
-    today = new Date().toLocaleDateString('en-GB', {
-      weekday : 'short',
-         day : 'numeric',
-         month : 'short',
-         year : 'numeric',
-         hour12 : true,
-         hour : 'numeric',
-        minute : 'numeric'
-      }).split(' ').join(' ');
-  callpostmodel = new Callpost('','',null,'','','','','',1,1);
-  
+   isOn = true ;
+   counter : number = 0 ; 
+   parentModel : Callpost = null ; 
   constructor(private callservice:CallLogFrmService) { 
+    
   }
-  //submitted = false;
 
-              onSubmit(){
-                //this.submitted=true;
-              this.callservice.call(this.callpostmodel)
-              
-              .subscribe(
-                data => console.log('success!',data),
-                error => console.log('Error!!',error)
+  next(){
+    if(this.counter==0){
+      this.isOn = !this.isOn;
+      this.onSubmit();
+    }
+    this.counter++;
      
-              )
-              return confirm('Do you really want to submit the form?');
-              
-            }
-  ngOnInit() {
+  }
+
+  onSubmit(){
+    //this.submitted=true;
+  this.callservice.call(this.parentModel)
+  
+  .subscribe(
+    data => console.log('success!',data),
+    error => console.log('Error!!',error)
+
+  )}
+
+  ngOnInit(){
+    this.parentModel = new Callpost(
+      '',
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+    );
+
   }
 }

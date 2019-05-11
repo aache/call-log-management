@@ -1,0 +1,63 @@
+<form role="form" #calllogfrm2="ngForm"  novalidate >
+   {{childModel | json}}
+    <div class="form-group" >
+      <label>Ticket No :</label>
+      <input class="form-control " 
+       #name="ngModel" name="ticketno"  [(ngModel)]="childModel.ticketno" >                       
+  </div> 
+<div class="form-group" >
+    <label>Name Of Person :</label>
+    <input class="form-control "
+     #name="ngModel" name="name"  [(ngModel)]="childModel.name" >                      
+    
+    
+</div> 
+
+<div class="form-group">
+    <label>Phone Number :</label>
+    <input class="form-control" #phone_number="ngModel" 
+         
+         name="phone_number"[(ngModel)]="childModel.phone_number">
+    
+</div>
+<div class="form-group">
+  <label>Location :</label>
+  <input class="form-control" #location="ngModel" 
+   name="location" [(ngModel)]="childModel.location">
+  
+</div>
+
+<div class="form-group" >
+  <label>User Id :</label>
+  <input class="form-control " [class.alert-danger]="user_id.invalid && user_id.touched"
+   #user_id="ngModel" name="user_id" required [(ngModel)]="childModel.user_id" >                      
+  
+</div> 
+
+<div class="form-group" >
+  <label>Assigned To :</label>
+  <input class="form-control " 
+   #user_id="ngModel" name="assigned_to" required [(ngModel)]="childModel.assigned_to" >                      
+ 
+</div> 
+
+
+<div class="form-group">
+        <label>Call Priority :</label>
+        <select class="form-control" id="call_priority" name="call_priority" required [(ngModel)]="childModel.call_priority">
+            <option value="1">Immediate Priority</option>
+            <option value="2">High Priority</option>
+            <option value="3">Medium Priority</option>
+            <option value="4">Low Priority</option>
+        </select>
+</div>
+
+
+
+<!--button [disabled]="calllogfrm.form.invalid" type="submit" class="btn btn-primary btn-default space">Submit Button</button>
+<button type="reset" class="btn btn-default space">Reset Button</button>-->
+
+
+
+<!--/form-->
+</form>

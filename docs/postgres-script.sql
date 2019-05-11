@@ -12,10 +12,10 @@ CREATE TABLE tb_calllogfrm (
   phonenumber varchar(20) NOT NULL,
   timeofcall timestamp DEFAULT NULL,
   location varchar(100) DEFAULT NULL,
-  reportedby varchar(50) DEFAULT NULL,
+  assigned_to varchar(50) DEFAULT NULL,
   callpriority int DEFAULT NULL,
-  callseverity int DEFAULT NULL,
-  call_log_id SERIAL,
+  user_id character varying(30),
+   call_log_id SERIAL,
   PRIMARY KEY (call_log_id)
 );
 

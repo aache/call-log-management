@@ -1,0 +1,41 @@
+<form role="form" #calllogfrm="ngForm"  novalidate >
+<div class="form-group" >
+    <label>Name Of Person :</label>
+    <input class="form-control " [class.alert-danger]="name.invalid && name.touched"
+     #name="ngModel" name="name" required [(ngModel)]="childModel.name" >                      
+    <small [class.hidden]="name.valid || name.untouched">Name is Required!!</small>
+    
+</div> 
+
+<div class="form-group">
+    <label>Phone Number :</label>
+    <input class="form-control" #phone_number="ngModel" 
+         [class.alert-danger]="phone_number.invalid && phone_number.touched" pattern="^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$" 
+         name="phone_number" required [(ngModel)]="childModel.phone_number">
+    <div *ngIf="phone_number.errors && (phone_number.invalid || phone_number.touched)">
+        <small class="alert-danger" *ngIf="phone_number.errors.required">Phone Number is Required !!</small>
+        <small class="alert-danger" *ngIf="phone_number.errors.pattern">Number should be in this format(8*********,91**********,+91**********,+91 *********,,+91-*********,0**********)</small>
+    </div>
+</div>
+<div class="form-group">
+  <label>Location :</label>
+  <input class="form-control" #location="ngModel" [class.alert-danger]="location.invalid && location.touched"
+   name="location" required [(ngModel)]="childModel.location">
+  <small [class.hidden]="location.valid || location.untouched">Location is Required !!</small>
+</div>
+
+<div class="form-group" >
+    <label>User Id :</label>
+    <input class="form-control" name="user_id"  [(ngModel)]="childModel.user_id" >                      
+    
+</div> 
+
+
+
+<!--button [disabled]="calllogfrm.form.invalid" type="submit" class="btn btn-primary btn-default space" >Submit</button>
+<button type="reset" class="btn btn-default space">Reset Button</button>-->
+
+
+
+<!--/form-->
+</form>

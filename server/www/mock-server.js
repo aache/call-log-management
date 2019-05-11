@@ -35,22 +35,11 @@
         console.log(req.body.timeofcall); 
         console.log(req.body.callpriority);
         console.log(req.body.callseverity);  
-        var calllog = {
-            uname       : req.body.name,
-            phonenumber : req.body.phone_number,
-            timeofcall  : new Date(),
-            vlan        : req.body.vlan,
-            zone        : req.body.zone,
-            user_id     : req.body.user_id,
-            location    : req.body.location,
-            reportedby  : req.body.reported_by,
-            callpriority: req.body.call_priority,
-            callseverity: req.body.call_severity
-        }    
+       
        // console.log(req.body.name);
        const query = {
-        text: 'INSERT INTO tb_calllogfrm(uname,phonenumber,timeofcall,vlan,zone,user_id,location,reportedby,callpriority,callseverity) VALUES ($1, $2,$3,$4,$5,$6,$7,$8,$9,$10) RETURNING *',
-        values: [ req.body.name, req.body.phone_number,new Date(),req.body.vlan,req.body.zone,req.body.user_id,req.body.location,req.body.reported_by,req.body.call_priority, req.body.call_severity],
+        text: 'INSERT INTO tb_calllogfrm(uname,phonenumber,timeofcall,location,assigned_to,callpriority,user_id) VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING *',
+        values: [ req.body.name, req.body.phone_number,new Date(),req.body.location,'',null,req.body.user_id],
       }
       conn.query(query, (err, res) => {
            if(!err)
@@ -60,6 +49,31 @@
            console.log(err);
           });
     });
+
+/*Service to update call Log Form in database */
+app.post('/mock/mock-calllogfrm2',(req,res) => {
+       
+    console.log(req.body.timeofcall); 
+    console.log(req.body.callpriority);
+   
+   
+   // console.log(req.body.name);
+   const query = {
+    text: "UPDATE tb_calllogfrm SET ticket_no = $8,uname = $1,phonenumber= $2,timeofcall = $3, location = $4 ,assigned_to = $5,callpriority = $6,user_id = $7 where call_log_id = 52 ",
+    values: [ req.body.name, req.body.phone_number,new Date(),req.body.location,req.body.assigned,req.body.callpriority,req.body.user_id],
+  }
+  conn.query(query,function(err,result){
+    if(!err){
+     console.log("Successfully updated on Call Log Form!!"); 
+     res.send(result);
+    }
+     else
+     {
+       console.log(err);
+     }
+    })
+});
+
 /*Service to get data from database to table(call-log-view) */
 
     app.get('/mock/mock-calllogview',(req,res)=>{
