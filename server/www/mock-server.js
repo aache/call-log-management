@@ -55,12 +55,12 @@ app.post('/mock/mock-calllogfrm2',(req,res) => {
        
     console.log(req.body.timeofcall); 
     console.log(req.body.callpriority);
-   
+   console.log(req.body.name);
    
    // console.log(req.body.name);
    const query = {
-    text: "UPDATE tb_calllogfrm SET ticket_no = $8,uname = $1,phonenumber= $2,timeofcall = $3, location = $4 ,assigned_to = $5,callpriority = $6,user_id = $7 where call_log_id = 52 ",
-    values: [ req.body.name, req.body.phone_number,new Date(),req.body.location,req.body.assigned,req.body.callpriority,req.body.user_id],
+    text: "UPDATE tb_calllogfrm SET ticket_no = $8,uname = $1,phonenumber= $2,timeofcall = $3, location = $4 ,assigned_to = $5,callpriority = $6,user_id = $7 where call_log_id = 75 ",
+    values: [ req.body.name, req.body.phone_number,new Date(),req.body.location,req.body.assigned_to,req.body.call_priority,req.body.user_id,req.body.ticket_no],
   }
   conn.query(query,function(err,result){
     if(!err){

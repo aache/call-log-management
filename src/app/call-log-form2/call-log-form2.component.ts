@@ -14,7 +14,7 @@ export class CallLogForm2Component implements OnInit {
   constructor(private callservice:CallLogFrmService) { }
 
   ngOnInit() {
-    console.log(this.childModel.name) ; 
+    console.log(this.childModel) ; 
   }
 
 }

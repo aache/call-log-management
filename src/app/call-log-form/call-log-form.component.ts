@@ -32,13 +32,20 @@ export class CallLogFormComponent implements OnInit {
   onSubmit(){
     //this.submitted=true;
   this.callservice.call(this.parentModel)
-  
+  //this.callservice.updatecall(this.parentModel)
   .subscribe(
     data => console.log('success!',data),
     error => console.log('Error!!',error)
 
   )}
 
+  upcall(){
+    this.callservice.updatecall(this.parentModel)
+  .subscribe(
+    data => console.log('success!',data),
+    error => console.log('Error!!',error)
+
+  )}
   ngOnInit(){
     this.parentModel = new Callpost(
       '',
@@ -46,8 +53,8 @@ export class CallLogFormComponent implements OnInit {
       null,
       null,
       null,
-      null,
-      null,
+      'dan',
+      1,
       null,
     );
 
