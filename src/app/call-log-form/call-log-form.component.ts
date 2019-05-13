@@ -26,6 +26,7 @@ export class CallLogFormComponent implements OnInit {
       this.onSubmit();
     }
     this.counter++;
+    this.upcall();
      
   }
 

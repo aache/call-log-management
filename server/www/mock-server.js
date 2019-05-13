@@ -34,12 +34,14 @@
        
         console.log(req.body.timeofcall); 
         console.log(req.body.callpriority);
-        console.log(req.body.callseverity);  
+        let date = new Date();
+            date = date.toISOString().slice(0,10);
+        console.log(date);  
        
        // console.log(req.body.name);
        const query = {
-        text: 'INSERT INTO tb_calllogfrm(uname,phonenumber,timeofcall,location,assigned_to,callpriority,user_id) VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING *',
-        values: [ req.body.name, req.body.phone_number,new Date(),req.body.location,'',null,req.body.user_id],
+        text: 'INSERT INTO tb_calllogfrm(uname,phonenumber,timeofcall,location,assigned_to,callpriority,user_id,ticket_no) VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING *',
+        values: [ req.body.name, req.body.phone_number,new Date(),req.body.location,'',null,req.body.user_id,date],
       }
       conn.query(query, (err, res) => {
            if(!err)
@@ -59,7 +61,7 @@ app.post('/mock/mock-calllogfrm2',(req,res) => {
    
    // console.log(req.body.name);
    const query = {
-    text: "UPDATE tb_calllogfrm SET ticket_no = $8,uname = $1,phonenumber= $2,timeofcall = $3, location = $4 ,assigned_to = $5,callpriority = $6,user_id = $7 where call_log_id = 75 ",
+    text: "UPDATE tb_calllogfrm SET ticket_no = $8,uname = $1,phonenumber= $2,timeofcall = $3, location = $4 ,assigned_to = $5,callpriority = $6,user_id = $7 where call_log_id = 89 ",
     values: [ req.body.name, req.body.phone_number,new Date(),req.body.location,req.body.assigned_to,req.body.call_priority,req.body.user_id,req.body.ticket_no],
   }
   conn.query(query,function(err,result){
