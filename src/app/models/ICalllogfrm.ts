@@ -6,6 +6,5 @@ export interface ICalllogfrm{
      location : string;
      assigned_to : string;
      call_priority : number;
-     ticket_no : number;
-           
+     ticket_no : string;
 }

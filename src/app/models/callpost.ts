@@ -10,6 +10,6 @@ export class Callpost implements ICalllogfrm{
         public location : string,
         public assigned_to: string,
         public call_priority : number,
-        public ticket_no : number,
+        public ticket_no : string,
     ){}
 }

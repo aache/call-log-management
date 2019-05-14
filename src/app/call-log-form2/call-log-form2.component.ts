@@ -10,7 +10,6 @@ import { CallLogFrmService } from '../services/Call-Log-Form/call-log-frm.servic
 export class CallLogForm2Component implements OnInit {
   @Input()
   childModel : Callpost = null ; 
-
   constructor(private callservice:CallLogFrmService) { }
 
   ngOnInit() {

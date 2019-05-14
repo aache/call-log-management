@@ -2,7 +2,7 @@
 <div id="page-wrapper" >
         <div class="row">
                 <div class="col-lg-8">
-                    <h1 class="page-header">Call Log Form</h1>
+                    <h1 class="page-header">Customer Complaints</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -11,17 +11,16 @@
                 <div class="col-lg-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Form Elements :-
+                            Complaint Details
                         </div>
     <div class="panel-body">
         <div class="row">
-            <div class="col-lg-8">
+            <div class="col-lg-12">
                     <app-call-log-form1 *ngIf="isOn" [childModel]="parentModel"></app-call-log-form1>
                     <app-call-log-form2 *ngIf="!isOn" [childModel]="parentModel"></app-call-log-form2>
             </div>
-            <div>
-                <button id="chkbtn" type="submit" class="btn btn-primary btn-default space" (click)="next()">Next Button</button>
-                <button id="chkbtn" type="submit" class="btn btn-primary btn-default space" (click)="upcall()">Submit Button</button>
+            <div class="col-lg-12">
+                <button id="chkbtn" type="submit" class="btn btn-primary btn-default space" (click)="next()">Next --></button>
             </div>
             <!-- /.col-lg-6 (nested) -->
         </div>

@@ -13,14 +13,14 @@ export class CallLogFrmService {
   
   constructor(private http : HttpClient) { }
 
-call(calli : Callpost){
-  return this.http.post<any>(this._urlcalllogfrm,calli);
+  call(calli : Callpost){
+    return this.http.post<any>(this._urlcalllogfrm,calli);
   }
   //for update the call log form
   private _urlcalllogfrm2 : string = AppSettings.API_ENDPOINT_MOCK + 'mock-calllogfrm2';
-    updatecall(upcall : Callpost){
-    return this.http.post<any>(this._urlcalllogfrm2,upcall);
-    }
+  updatecall(upcall : Callpost){
+      return this.http.post<any>(this._urlcalllogfrm2,upcall);
+  }
 
 //for Call-log-view get method
 private _urlcalllogview : string = AppSettings.API_ENDPOINT_MOCK + 'mock-calllogview';
