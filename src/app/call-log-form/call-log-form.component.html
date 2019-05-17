@@ -16,6 +16,7 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-lg-12">
+                    <div class="alert alert-success" *ngIf = "SuccessDt != null">Call Log Entries successful at {{SuccessDt | date :'d/M/y hh:mm:ss a'}}</div>
                     <app-call-log-form1 *ngIf="isOn" [childModel]="parentModel"></app-call-log-form1>
                     <app-call-log-form2 *ngIf="!isOn" [childModel]="parentModel"></app-call-log-form2>
             </div>

@@ -17,6 +17,7 @@ export class CallLogFormComponent implements OnInit {
    isOn = true ;
    counter : number = 0 ; 
    parentModel : Callpost = null ; 
+   SuccessDt :Date = null;
   constructor(private callservice:CallLogFrmService,
               private ticketService:TicketService) { 
     
@@ -48,8 +49,19 @@ export class CallLogFormComponent implements OnInit {
   .subscribe(
     data => console.log('success!',data),
     error => console.log('Error!!',error)
-
-  )}
+  )
+  this.SuccessDt = new Date();
+  this.parentModel = new Callpost(
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    1,
+    null,
+  );
+}
   ngOnInit(){
     this.parentModel = new Callpost(
       null,

@@ -58,13 +58,13 @@
 /*Service to update call Log Form in database */
 app.post('/mock/mock-calllogfrm2',(req,res) => {
        
-    console.log(req.body.timeofcall); 
-    console.log(req.body.callpriority);
+    console.log(req.body.assigned_to); 
+    console.log(req.body.call_priority);
    console.log(req.body.name);
    
    // console.log(req.body.name);
    const query = {
-    text: "UPDATE tb_calllogfrm SET uname = $1,phonenumber= $2,timeofcall = $3, location = $4 ,assigned_to = $5,callpriority = $6,user_id = $7 where call_log_id = 89 ",
+    text: "UPDATE tb_calllogfrm SET uname = $1,phonenumber= $2,timeofcall = $3, location = $4 ,assigned_to = $5,callpriority = $6,user_id = $7 where call_log_id = 106",
     values: [ req.body.name, req.body.phone_number,new Date(),req.body.location,req.body.assigned_to,req.body.call_priority,req.body.user_id],
   }
   conn.query(query,function(err,result){
