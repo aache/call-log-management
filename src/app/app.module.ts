@@ -27,6 +27,7 @@ import { StockItemsPopupComponent } from './stock-items-popup/stock-items-popup.
 import { StockItemsPopupViewComponent } from './stock-items-popup-view/stock-items-popup-view.component';
 import { CallLogForm1Component } from './call-log-form1/call-log-form1.component';
 import { CallLogForm2Component } from './call-log-form2/call-log-form2.component';
+import { ReportComponent } from './report/report.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { CallLogForm2Component } from './call-log-form2/call-log-form2.component
     StockItemsPopupComponent,
     StockItemsPopupViewComponent,
     CallLogForm1Component,
-    CallLogForm2Component
+    CallLogForm2Component,
+    ReportComponent
   ],
   imports: [
     HttpClientModule,
