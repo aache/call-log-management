@@ -1,4 +1,5 @@
 export interface ICalllogfrm{
+     call_log_id : number;
      name : string;
      phone_number : string;
      time_of_call : Date;

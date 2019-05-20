@@ -17,12 +17,12 @@ selected_stock_id: number;
   constructor(private stockservice: StockItemsService) { }
 onDeleteclick(id) {
   console .log (id);
-  this.stockservice.deletestockitems(id).subscribe(data => this.stockload.id = data.id);
+  this.stockservice.deleteStockItem(id).subscribe(data => this.stockload.id = data.id);
   window.location.reload();
 }
 
   ngOnInit() {
-    this.stockservice.getstockitems().subscribe(result => {
+    this.stockservice.getStockItems().subscribe(result => {
       this.stockload = result;
     });
   }

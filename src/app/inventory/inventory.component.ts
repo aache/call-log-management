@@ -18,7 +18,7 @@ export class InventoryComponent implements OnInit {
   constructor(private service: InventoryService, private stockservice: StockItemsService) { }
   onInwardClick() {
 //    this.inwardmodel.stock_id = this.stockload;
-  this.service.inwardcall(this.inwardmodel)
+  this.service.inwardCall(this.inwardmodel)
   .subscribe(
     data => {console.log('inward success');},
     error => console.log('inward Error!!', error)
@@ -45,7 +45,7 @@ export class InventoryComponent implements OnInit {
             }else {
               console.log("Quantity is valid");
               this.errInvalidQty = false ;
-              this.service.outwardcall(this.outwardmodel)
+              this.service.outwardCall(this.outwardmodel)
               .subscribe(
                 data => {console.log('outwawrd success');this.outwardSuccessDt = new Date();},
                 error => console.log('inward Error!!', error)
@@ -58,8 +58,8 @@ export class InventoryComponent implements OnInit {
   }
    ngOnInit() {
    // to get data from database
-   this.service.getstockview().subscribe();
-   this.stockservice.getstockitems().subscribe(result =>{
+   this.service.getStockView().subscribe();
+   this.stockservice.getStockItems().subscribe(result =>{
     this.stockload = result;
     console.log(result);
    });

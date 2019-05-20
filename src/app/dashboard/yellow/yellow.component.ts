@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardService } from 'src/app/services/Dashboard/dashboard.service';
-import { IDashboard } from 'src/app/models/Idashboard';
+import { IDashboard } from 'src/app/models/IDashboard';
 
 @Component({
   selector: 'app-yellow',

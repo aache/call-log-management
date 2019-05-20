@@ -12,7 +12,7 @@ export class StockItemsPopupComponent implements OnInit {
   constructor(private ser: StockItemsService) { }
   onStockClick() {
     console.log("Stock Model %o" , this.stockmodel);
-    this.ser.stockpost(this.stockmodel)
+    this.ser.stockPost(this.stockmodel)
     .subscribe(
       data => console.log('success!', data),
       error => console.log('Error!!', error)

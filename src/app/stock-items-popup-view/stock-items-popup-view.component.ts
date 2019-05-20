@@ -20,7 +20,7 @@ stock_id : number ;
 
   ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
     console.log('Stock ID :::' + this.stock_id);
-    this.stockservice.gettransaction(this.stock_id).subscribe(data => {
+    this.stockservice.getTransaction(this.stock_id).subscribe(data => {
       this.transaction = data;
     });
   }

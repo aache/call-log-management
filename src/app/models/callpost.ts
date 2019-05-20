@@ -3,6 +3,7 @@ import { ICalllogfrm } from './ICalllogfrm';
 export class Callpost implements ICalllogfrm{
 
     constructor(
+        public call_log_id : number,
         public name : string,
         public phone_number : string,
         public time_of_call : Date,

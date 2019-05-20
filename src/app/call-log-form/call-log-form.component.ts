@@ -58,12 +58,14 @@ export class CallLogFormComponent implements OnInit {
     null,
     null,
     null,
+    null,
     1,
     null,
   );
 }
   ngOnInit(){
     this.parentModel = new Callpost(
+      null,
       null,
       null,
       null,

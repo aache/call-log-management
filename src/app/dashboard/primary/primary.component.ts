@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
 
-import { IDashboard} from 'src/app/models/Idashboard';
+import { IDashboard} from 'src/app/models/IDashboard';
 import { DashboardService } from 'src/app/services/Dashboard/dashboard.service';
 @Component({
   selector: 'app-primary',
