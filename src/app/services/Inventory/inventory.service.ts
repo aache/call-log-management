@@ -27,5 +27,13 @@ export class InventoryService {
     console.log('Reading http stock Items From Database');
     return httpOutput;
       
-  }
+  };
+
+  /*Service to get data from tb_transition to report */
+  private _urltransition : string = AppSettings.API_ENDPOINT_INVENTORY + 'mock-transition-report';
+  getTransition(): Observable<ITransition>{
+  const httpOutput = this.http.get<ITransition>(this._urltransition);
+  console.log('Select http stock-items data from database');
+    return httpOutput;
+}
 }

@@ -9,7 +9,7 @@ import { StockItemsComponent } from './stock-items/stock-items.component';
 import { AuthGuardService } from './guards/auth-guard.service';
 import { CallLogForm1Component } from './call-log-form1/call-log-form1.component';
 import { CallLogForm2Component } from './call-log-form2/call-log-form2.component';
-
+import { ReportComponent } from './report/report.component';
 const routes: Routes = [
   {path: 'login' , component: LoginComponent},
   {path: 'dashboard' , component: DashboardComponent, canActivate: [AuthGuardService]},
@@ -20,6 +20,7 @@ const routes: Routes = [
   {path: 'stock-items' , component: StockItemsComponent, canActivate: [AuthGuardService]},
   {path: 'call-log-form1' , component: CallLogForm1Component},
   {path: 'call-log-form2' , component: CallLogForm2Component},
+  {path: 'report' , component: ReportComponent },
   ];
 
 @NgModule({

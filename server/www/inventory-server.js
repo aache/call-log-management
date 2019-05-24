@@ -179,5 +179,23 @@
         });
         
        });
+
+       /*Service to select items from transition table for report */
+       app.get('/mock/mock-transition-report',(req,res)=>{
+		
+        const query2 = {
+          //name: 'get-tb_transition2',
+          text: "SELECT * FROM tb_transition order by date desc",          
+          rowMode: 'string'
+        }
+        conn.query(query2, (err, result2) => {
+          if (err) {
+            console.error(err)
+          } else {
+              res.send(result2.rows); 
+          }
+        });
+        
+       });
        app.listen(port, () => console.log(`Example app Inventory listening on port ${port}!`))
     
