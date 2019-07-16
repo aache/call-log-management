@@ -9,6 +9,6 @@ export class Transition implements ITransition{
       public   quantity: number,
       public   transition_type: string,
       public   date: Date,
-      public   discription: string
+      public  discription: string
     ) {}
 }

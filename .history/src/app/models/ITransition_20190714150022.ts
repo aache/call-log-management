@@ -1,5 +1,5 @@
 export interface ITransition{
-    transition_id: number,
+    id: number,
     stock_id: number,
     stock_name:string,
     username: string,

@@ -16,21 +16,22 @@ export class InventoryService {
   private _urltransition: string = AppSettings.API_ENDPOINT_INVENTORY + 'mock-transition-report';
 
   constructor(private http: HttpClient) { }
-  inwardCall( model: Transition) {
-    return this.http.post<any>(this._urlinventory, model);
-  }
-  outwardCall(model: Transition) {
-    return this.http.post<any>(this._urlinventoryOutward, model);
-  }
+  
+  inwardCall( model: Transition){
+    return this.http.post<any>(this._urlinventory,model);
+  };
+  outwardCall(model: Transition){
+    return this.http.post<any>(this._urlinventoryOutward,model);
+  };
   /*Service to view stock Items */
-  getStockView(): Observable<IStockitems> {
+  getStockView(): Observable<IStockitems>{
     const httpOutput = this.http.get<IStockitems>(this._urlstockview);
     console.log('Reading http stock Items From Database');
     return httpOutput;
-  }
+  };
 
   /*Service to get data from tb_transition to report */
-  getTransition(): Observable<ITransition[]> {
+  getTransition(): Observable<ITransition[]>{
   const httpOutput = this.http.get<ITransition[]>(this._urltransition);
   console.log('Select http stock-items data from database');
     return httpOutput;

@@ -25,7 +25,7 @@ this.service.getTransition().subscribe(
     let stringData: any = '';
     this.data.forEach(function(transition) {
       stringData = stringData +
-                   transition.transition_id + ',' +
+                   transition.id + ',' +
                    transition.date + ',' +
                    transition.discription + ',' +
                    transition.quantity + ',' +

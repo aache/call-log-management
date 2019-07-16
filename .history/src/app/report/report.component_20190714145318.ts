@@ -14,18 +14,18 @@ export class ReportComponent implements OnInit {
   constructor(private sanitizer: DomSanitizer,
     private service: InventoryService ) { }
 
-    onSubmit() {
+    onSubmit(){
 
     }
   ngOnInit() {
 this.service.getTransition().subscribe(
-  result => {
+  result =>{
     this.data = result;
   console.log(this.data);
     let stringData: any = '';
     this.data.forEach(function(transition) {
       stringData = stringData +
-                   transition.transition_id + ',' +
+                   transition.id + ',' +
                    transition.date + ',' +
                    transition.discription + ',' +
                    transition.quantity + ',' +
