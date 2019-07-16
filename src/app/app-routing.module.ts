@@ -20,7 +20,7 @@ const routes: Routes = [
   {path: 'stock-items' , component: StockItemsComponent, canActivate: [AuthGuardService]},
   {path: 'call-log-form1' , component: CallLogForm1Component},
   {path: 'call-log-form2' , component: CallLogForm2Component},
-  {path: 'report' , component: ReportComponent },
+  {path: 'report' , component: ReportComponent ,canActivate: [AuthGuardService]},
   ];
 
 @NgModule({
