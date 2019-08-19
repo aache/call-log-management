@@ -1,113 +1,105 @@
 <app-vertical-navigation></app-vertical-navigation>
-<div id="page-wrapper" >
-        <div class="row">
-                <div class="col-lg-8">
-                    <h1 class="page-header">Call Log Form</h1>
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-8">
+            <h1 class="page-header">CALL LOG FORM</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Form Elements :-
                 </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Form Elements :-
-                        </div>
-    <div class="panel-body">
-        <div class="row">
-            <div class="col-lg-8">
-                    <form role="form" #calllogfrm="ngForm" (ngSubmit)="onSubmit()" novalidate >
-                      <!-- {{calllogfrm.value | json}}
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <form role="form" #calllogfrm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+                                <!-- {{calllogfrm.value | json}}
                         <hr />
                         {{callpostmodel | json}} 
                         {{calllogfrm.form.valid}}-->
-                        <!--form-->
-                    <div class="form-group" >
-                        <label>Name Of Person :</label>
-                        <input class="form-control " [class.alert-danger]="name.invalid && name.touched"
-                         #name="ngModel" name="name" required [(ngModel)]="callpostmodel.name" >                      
-                        <small [class.hidden]="name.valid || name.untouched">Name is Required!!</small>
-                        
-                   </div> 
-                   
-                    <div class="form-group">
-                        <label>Phone Number :</label>
-                        <input class="form-control" #phone_number="ngModel" 
-                             [class.alert-danger]="phone_number.invalid && phone_number.touched" pattern="^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$" 
-                             name="phone_number" required [(ngModel)]="callpostmodel.phone_number">
-                        <div *ngIf="phone_number.errors && (phone_number.invalid || phone_number.touched)">
-                            <small class="alert-danger" *ngIf="phone_number.errors.required">Phone Number is Required !!</small>
-                            <small class="alert-danger" *ngIf="phone_number.errors.pattern">Number should be in this format(8*********,91**********,+91**********,+91 *********,,+91-*********,0**********)</small>
-                        </div>
-                    </div>
-                   <!-- <div class="form-group">
+                                <!--form-->
+                                <div class="form-group">
+                                    <label>Name Of Person :</label>
+                                    <input class="form-control " [class.alert-danger]="name.invalid && name.touched" #name="ngModel" name="name" required [(ngModel)]="callpostmodel.name">
+                                    <small [class.hidden]="name.valid || name.untouched">Name is Required!!</small>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Phone Number :</label>
+                                    <input class="form-control" #phone_number="ngModel" [class.alert-danger]="phone_number.invalid && phone_number.touched" pattern="^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$" name="phone_number" required [(ngModel)]="callpostmodel.phone_number">
+                                    <div *ngIf="phone_number.errors && (phone_number.invalid || phone_number.touched)">
+                                        <small class="alert-danger" *ngIf="phone_number.errors.required">Phone Number is Required !!</small>
+                                        <small class="alert-danger" *ngIf="phone_number.errors.pattern">Number should be in this format(8*********,91**********,+91**********,+91 *********,,+91-*********,0**********)</small>
+                                    </div>
+                                </div>
+                                <!-- <div class="form-group">
                         <label>Time Of Call :</label>
                         <input class="form-control" [disabled]="true" #time_of_call="ngModel" id="time_of_call" name="time_of_call" min="2000-01-02" required [(ngModel)]="callpostmodel.time_of_call">
                     </div>
                     -->
-                    <div class="form-group" >
-                        <label>Vlan :</label>
-                        <input class="form-control " [class.alert-danger]="vlan.invalid && vlan.touched"
-                         #vlan="ngModel" name="vlan" required [(ngModel)]="callpostmodel.vlan" >                      
-                        <small [class.hidden]="vlan.valid || vlan.untouched">Vlan is Required!!</small>
-                    </div> 
-                    <div class="form-group" >
-                        <label>Zone :</label>
-                        <input class="form-control " [class.alert-danger]="zone.invalid && zone.touched"
-                         #zone="ngModel" name="zone" required [(ngModel)]="callpostmodel.zone" >                      
-                        <small [class.hidden]="zone.valid || zone.untouched">Zone is Required!!</small>
-                    </div> 
-                    <div class="form-group" >
-                        <label>User Id :</label>
-                        <input class="form-control " [class.alert-danger]="user_id.invalid && user_id.touched"
-                         #user_id="ngModel" name="user_id" required [(ngModel)]="callpostmodel.user_id" >                      
-                        <small [class.hidden]="user_id.valid || user_id.untouched">User Id is Required!!</small>
-                    </div> 
-                    <div class="form-group">
-                        <label>Location :</label>
-                        <input class="form-control" #location="ngModel" [class.alert-danger]="location.invalid && location.touched"
-                         name="location" required [(ngModel)]="callpostmodel.location">
-                        <small [class.hidden]="location.valid || location.untouched">Location is Required !!</small>
-                    </div>
-                    <div class="form-group">
-                        <label>Reported by :</label>
-                        <input class="form-control" #reported_by="ngModel" [class.alert-danger]="reported_by.invalid && reported_by.touched" 
-                        name="reported_by" required [(ngModel)]="callpostmodel.reported_by">
-                        <small [class.hidden]="reported_by.valid || reported_by.untouched">Reporeted By is Required !!</small>
-                    </div>
-                    <div class="form-group">
-                            <label>Call Priority :</label>
-                            <select class="form-control" id="call_priority" name="call_priority" required [(ngModel)]="callpostmodel.call_priority">
+                                <div class="form-group">
+                                    <label>Vlan :</label>
+                                    <input class="form-control " [class.alert-danger]="vlan.invalid && vlan.touched" #vlan="ngModel" name="vlan" required [(ngModel)]="callpostmodel.vlan">
+                                    <small [class.hidden]="vlan.valid || vlan.untouched">Vlan is Required!!</small>
+                                </div>
+                                <div class="form-group">
+                                    <label>Zone :</label>
+                                    <input class="form-control " [class.alert-danger]="zone.invalid && zone.touched" #zone="ngModel" name="zone" required [(ngModel)]="callpostmodel.zone">
+                                    <small [class.hidden]="zone.valid || zone.untouched">Zone is Required!!</small>
+                                </div>
+                                <div class="form-group">
+                                    <label>User Id :</label>
+                                    <input class="form-control " [class.alert-danger]="user_id.invalid && user_id.touched" #user_id="ngModel" name="user_id" required [(ngModel)]="callpostmodel.user_id">
+                                    <small [class.hidden]="user_id.valid || user_id.untouched">User Id is Required!!</small>
+                                </div>
+                                <div class="form-group">
+                                    <label>Location :</label>
+                                    <input class="form-control" #location="ngModel" [class.alert-danger]="location.invalid && location.touched" name="location" required [(ngModel)]="callpostmodel.location">
+                                    <small [class.hidden]="location.valid || location.untouched">Location is Required !!</small>
+                                </div>
+                                <div class="form-group">
+                                    <label>Reported by :</label>
+                                    <input class="form-control" #reported_by="ngModel" [class.alert-danger]="reported_by.invalid && reported_by.touched" name="reported_by" required [(ngModel)]="callpostmodel.reported_by">
+                                    <small [class.hidden]="reported_by.valid || reported_by.untouched">Reporeted By is Required !!</small>
+                                </div>
+                                <div class="form-group">
+                                    <label>Call Priority :</label>
+                                    <select class="form-control" id="call_priority" name="call_priority" required [(ngModel)]="callpostmodel.call_priority">
                                 <option value="1">Immediate Priority</option>
                                 <option value="2">High Priority</option>
                                 <option value="3">Medium Priority</option>
                                 <option value="4">Low Priority</option>
                             </select>
-                    </div>
-                    <div class="form-group">
-                            <label>Call Severity :</label>
-                            <select class="form-control" id="call_severity" name="call_severity" required [(ngModel)]="callpostmodel.call_severity">
+                                </div>
+                                <div class="form-group">
+                                    <label>Call Severity :</label>
+                                    <select class="form-control" id="call_severity" name="call_severity" required [(ngModel)]="callpostmodel.call_severity">
                                 <option value="1">Critical Severity</option>
                                 <option value="2">Major Severity</option>
                                 <option value="3">Minor Severity</option>
                                 <option value="4">Low Severity</option>    
                             </select>
+                                </div>
+
+                                <button [disabled]="calllogfrm.form.invalid" type="submit" class="btn btn-default space">Submit Button</button>
+                                <button type="reset" class="btn btn-default space">Reset Button</button>
+
+
+
+                                <!--/form-->
+                            </form>
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
                     </div>
-
-                    <button [disabled]="calllogfrm.form.invalid" type="submit" class="btn btn-default space">Submit Button</button>
-                    <button type="reset" class="btn btn-default space">Reset Button</button>
-                    
-
-                    
-                <!--/form-->
-                </form>
+                    <!-- /.row (nested) -->
+                </div>
             </div>
-            <!-- /.col-lg-6 (nested) -->
+            <!-- /#page-wrapper -->
         </div>
-        <!-- /.row (nested) -->
-</div>
-</div>
-<!-- /#page-wrapper -->
-</div>
-</div>
+    </div>
 </div>
