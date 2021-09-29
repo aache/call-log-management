@@ -22,7 +22,7 @@
     "angular-datatables": "^7.0.0",
     "body-parser": "^1.18.3",
     "core-js": "^2.5.4",
-    "datatables.net": "^1.10.19",
+    "datatables.net": "^1.11.3",
     "datatables.net-dt": "^1.10.19",
     "express": "^4.16.4",
     "jsonwebtoken": "^8.5.1",
